@@ -26,6 +26,10 @@ export MLFLOW_TRACKING_URI=http://localhost:5000
 ./scripts/main_run.sh exp_A5
 ```
 
+Repo notes:
+- You still need the upstream MLPerf Inference repo for loadgen and reference assets (clone from https://github.com/mlcommons/inference.git as shown below).
+- If you want to reuse the processed datasets/logs stored in this repo (instead of downloading fresh), also clone this repo and keep its `results/` and `llama3.1-8b` paths intact. Otherwise, follow the download steps below.
+
 Note: The Quickstart scripts use the tuned FP8 / BS=1024 baseline. The plain Python examples below show the reference BF16 / BS=16 commands from the main repo.
 
 ## MLflow logging and UI

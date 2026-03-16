@@ -232,6 +232,3 @@ For edge (5k) baselines, see the upstream reference doc if needed.
 - Official MLPerf reference instructions and Docker/mlcr automation: https://github.com/mlcommons/inference/tree/master/language/llama3.1-8b
 
 Add accuracy runs and reports under [results/accuracy/](results/accuracy/) when you start accuracy-focused tuning.
-
-# llama31b-benchmark
-Reference implementations of MLPerf® inference benchmarks

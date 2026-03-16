@@ -1,0 +1,10 @@
+Experiment:       exp_00
+Run:              3/4
+Description:      OG baseline: BF16 BS=16 no-quant no-sort. Reference for all deltas.
+Batch Size:       16
+Dtype:            bfloat16
+Tokens/sec:       1019.34
+Samples/sec:      7.96357
+Valid:            VALID
+Duration:         3429s
+Exit Code:        0

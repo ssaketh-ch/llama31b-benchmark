@@ -1,0 +1,9 @@
+{
+    "experiment": "exp_10_no_prefix_cache_bs512",
+    "batch_size": 512,
+    "dtype": "bfloat16",
+    "description": "+enable_prefix_caching=False explicit: zero hit rate on CNN DailyMail",
+    "exit_code": 0,
+    "duration_seconds": 685,
+    "timestamp": "2026-03-06T12:21:16Z"
+}

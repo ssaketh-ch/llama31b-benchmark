@@ -1,0 +1,9 @@
+Experiment:       exp_09_sort_by_length_bs512
+Description:      +sort queries by input length: mean latency -24%, throughput +0.7%
+Batch Size:       512
+Dtype:            bfloat16
+Tokens/sec:       2913.79
+Samples/sec:      22.764
+Valid:            INVALID
+Duration:         653s
+Exit Code:        0

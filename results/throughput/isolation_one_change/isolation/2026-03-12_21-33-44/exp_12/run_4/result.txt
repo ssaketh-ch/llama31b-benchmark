@@ -1,0 +1,10 @@
+Experiment:       exp_12
+Run:              4/4
+Description:      +num_scheduler_steps=4 only [vLLM 0.10.0]. All else=baseline.
+Batch Size:       16
+Dtype:            bfloat16
+Tokens/sec:       1022.68
+Samples/sec:      7.98969
+Valid:            VALID
+Duration:         1748s
+Exit Code:        0

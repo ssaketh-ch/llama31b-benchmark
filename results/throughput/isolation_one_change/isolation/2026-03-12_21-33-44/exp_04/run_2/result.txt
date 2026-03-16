@@ -1,0 +1,10 @@
+Experiment:       exp_04
+Run:              2/4
+Description:      +max_model_len=2668 only. No quant, no sort, all else=baseline.
+Batch Size:       16
+Dtype:            bfloat16
+Tokens/sec:       1042.2
+Samples/sec:      8.14221
+Valid:            VALID
+Duration:         3480s
+Exit Code:        0

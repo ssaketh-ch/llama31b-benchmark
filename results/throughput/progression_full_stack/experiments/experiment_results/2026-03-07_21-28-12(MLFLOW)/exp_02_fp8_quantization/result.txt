@@ -1,0 +1,9 @@
+Experiment:       exp_02_fp8_quantization
+Description:      +FP8 quantization: weights 8.5GB -> 3.47GB
+Batch Size:       16
+Dtype:            bfloat16
+Tokens/sec:       1326.19
+Samples/sec:      10.3609
+Valid:            VALID
+Duration:         1495s
+Exit Code:        0

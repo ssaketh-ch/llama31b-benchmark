@@ -1,0 +1,9 @@
+{
+    "experiment": "exp_09_sort_by_length_bs512",
+    "batch_size": 512,
+    "dtype": "bfloat16",
+    "description": "+sort queries by input length: mean latency -24%, throughput +0.7%",
+    "exit_code": 0,
+    "duration_seconds": 653,
+    "timestamp": "2026-03-06T08:55:36Z"
+}

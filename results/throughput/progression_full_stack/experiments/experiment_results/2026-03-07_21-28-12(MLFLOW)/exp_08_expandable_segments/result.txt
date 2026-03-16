@@ -1,0 +1,9 @@
+Experiment:       exp_08_expandable_segments
+Description:      +expandable_segments:True: root cause fix for segfaults
+Batch Size:       512
+Dtype:            bfloat16
+Tokens/sec:       2743.32
+Samples/sec:      21.4322
+Valid:            VALID
+Duration:         710s
+Exit Code:        0

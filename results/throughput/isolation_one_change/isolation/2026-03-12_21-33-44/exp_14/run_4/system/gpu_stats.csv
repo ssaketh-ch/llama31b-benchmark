@@ -1,0 +1,2 @@
+name, memory.total [MiB], memory.free [MiB], memory.used [MiB], utilization.gpu [%], utilization.memory [%], temperature.gpu, power.draw [W]
+NVIDIA H200 NVL, 143771 MiB, 114113 MiB, 29055 MiB, [N/A], [N/A], 60, 202.56 W

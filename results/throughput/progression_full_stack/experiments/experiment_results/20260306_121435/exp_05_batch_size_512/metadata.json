@@ -1,0 +1,9 @@
+{
+    "experiment": "exp_05_batch_size_512",
+    "batch_size": 512,
+    "dtype": "bfloat16",
+    "description": "batch_size 16→512: second biggest gain, saturates GPU compute",
+    "exit_code": 0,
+    "duration_seconds": 720,
+    "timestamp": "2026-03-06T08:05:53Z"
+}

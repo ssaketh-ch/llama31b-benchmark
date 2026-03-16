@@ -1,0 +1,11 @@
+Experiment:    exp_09
+Description:   prefix_caching=False explicit (control). Expected: ~=baseline.
+Runs:          4/4 succeeded
+Mean tok/s:    1014.30
+Stdev tok/s:   5.26
+CV%:           0.5%
+Min tok/s:     1011.03
+Max tok/s:     1022.15
+All values:    ['1011.03', '1011.62', '1012.41', '1022.15']
+Valid rate:    4/4
+Speedup vs exp_00: -0.27%

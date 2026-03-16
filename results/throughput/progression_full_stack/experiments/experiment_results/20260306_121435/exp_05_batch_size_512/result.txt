@@ -1,0 +1,9 @@
+Experiment:       exp_05_batch_size_512
+Description:      batch_size 16→512: second biggest gain, saturates GPU compute
+Batch Size:       512
+Dtype:            bfloat16
+Tokens/sec:       2616.41
+Samples/sec:      20.4407
+Valid:            VALID
+Duration:         720s
+Exit Code:        0

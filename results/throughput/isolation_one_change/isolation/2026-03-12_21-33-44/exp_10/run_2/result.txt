@@ -1,0 +1,10 @@
+Experiment:       exp_10
+Run:              2/4
+Description:      +async_scheduling=True only [vLLM 0.10.0]. All else=baseline.
+Batch Size:       16
+Dtype:            bfloat16
+Tokens/sec:       1021.58
+Samples/sec:      7.98107
+Valid:            VALID
+Duration:         1868s
+Exit Code:        0

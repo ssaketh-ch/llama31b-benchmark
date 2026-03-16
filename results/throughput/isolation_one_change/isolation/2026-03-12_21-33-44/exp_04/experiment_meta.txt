@@ -1,0 +1,7 @@
+exp_id:       exp_04
+description:  +max_model_len=2668 only. No quant, no sort, all else=baseline.
+batch_size:   16
+dtype:        bfloat16
+runs:         4
+timestamp:    2026-03-13T03:13:16Z
+sut_func:     sut_exp04

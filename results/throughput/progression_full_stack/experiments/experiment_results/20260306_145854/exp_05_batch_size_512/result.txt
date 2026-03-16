@@ -1,0 +1,9 @@
+Experiment:       exp_05_batch_size_512
+Description:      batch_size 16->512: saturates GPU compute
+Batch Size:       512
+Dtype:            bfloat16
+Tokens/sec:       2673.76
+Samples/sec:      20.8888
+Valid:            VALID
+Duration:         706s
+Exit Code:        0

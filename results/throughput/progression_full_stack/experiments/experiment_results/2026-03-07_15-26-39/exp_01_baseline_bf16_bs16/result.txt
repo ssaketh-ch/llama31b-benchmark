@@ -1,0 +1,9 @@
+Experiment:       exp_01_baseline_bf16_bs16
+Description:      Baseline: BF16, TP=1, BS=16, all flags pinned explicitly
+Batch Size:       16
+Dtype:            bfloat16
+Tokens/sec:       1042.09
+Samples/sec:      8.14131
+Valid:            VALID
+Duration:         1687s
+Exit Code:        0

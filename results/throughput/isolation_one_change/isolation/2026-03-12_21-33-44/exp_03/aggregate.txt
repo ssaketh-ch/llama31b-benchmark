@@ -1,0 +1,11 @@
+Experiment:    exp_03
+Description:   +batch_size=1024 only. No quant, no sort, all else=baseline.
+Runs:          4/4 succeeded
+Mean tok/s:    2153.72
+Stdev tok/s:   58.26
+CV%:           2.7%
+Min tok/s:     2073.42
+Max tok/s:     2197.75
+All values:    ['2073.42', '2148.03', '2195.70', '2197.75']
+Valid rate:    4/4
+Speedup vs exp_00: +111.77%

@@ -1,0 +1,10 @@
+Experiment:       exp_09
+Run:              4/4
+Description:      prefix_caching=False explicit (control). Expected: ~=baseline.
+Batch Size:       16
+Dtype:            bfloat16
+Tokens/sec:       1022.15
+Samples/sec:      7.98553
+Valid:            VALID
+Duration:         1988s
+Exit Code:        0

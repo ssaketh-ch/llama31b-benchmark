@@ -1,0 +1,11 @@
+Experiment:    exp_11
+Description:   +num_scheduler_steps=2 only [vLLM 0.10.0]. All else=baseline.
+Runs:          4/4 succeeded
+Mean tok/s:    997.02
+Stdev tok/s:   5.80
+CV%:           0.6%
+Min tok/s:     990.34
+Max tok/s:     1004.20
+All values:    ['1004.20', '998.30', '995.23', '990.34']
+Valid rate:    4/4
+Speedup vs exp_00: -1.97%

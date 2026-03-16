@@ -1,0 +1,1 @@
+{"experiment":"exp_15_flashinfer_v0.3_retest","batch_size":1024,"dtype":"bfloat16","description":"FlashInfer v0.3.0 retest: upgraded in vLLM 0.10.x, previously regressed on 0.8.x","exit_code":0,"duration_seconds":691,"timestamp":"2026-03-07T13:59:13Z"}

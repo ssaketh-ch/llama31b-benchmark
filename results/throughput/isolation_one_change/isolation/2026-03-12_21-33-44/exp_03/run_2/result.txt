@@ -1,0 +1,10 @@
+Experiment:       exp_03
+Run:              2/4
+Description:      +batch_size=1024 only. No quant, no sort, all else=baseline.
+Batch Size:       1024
+Dtype:            bfloat16
+Tokens/sec:       2148.03
+Samples/sec:      16.7815
+Valid:            VALID
+Duration:         1662s
+Exit Code:        0

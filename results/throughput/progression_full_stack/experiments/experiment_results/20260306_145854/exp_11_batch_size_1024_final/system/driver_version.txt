@@ -1,0 +1,7 @@
+NVRM version: NVIDIA UNIX x86_64 Kernel Module  570.133.20  Sun Apr 13 04:50:56 UTC 2025
+GCC version:  gcc version 8.5.0 20210514 (Red Hat 8.5.0-26) (GCC) 
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2025 NVIDIA Corporation
+Built on Wed_Jan_15_19:20:09_PST_2025
+Cuda compilation tools, release 12.8, V12.8.61
+Build cuda_12.8.r12.8/compiler.35404655_0

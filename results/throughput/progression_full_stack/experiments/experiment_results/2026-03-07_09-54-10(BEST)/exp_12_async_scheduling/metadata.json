@@ -1,0 +1,1 @@
+{"experiment":"exp_12_async_scheduling","batch_size":1024,"dtype":"bfloat16","description":"+async_scheduling=True: overlap scheduler with GPU (new in vLLM 0.10.0)","exit_code":0,"duration_seconds":637,"timestamp":"2026-03-07T07:31:30Z"}

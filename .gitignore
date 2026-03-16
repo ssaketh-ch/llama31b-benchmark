@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual envs
+.env
+.venv
+mlperf/
+mlperf-inference-5.1-redhat/
+
+# Local runs and artifacts
+results/*
+!results/throughput/
+!results/throughput/**
+!results/accuracy/
+!results/accuracy/**
+results/throughput/single_knob_tests/*/run.log
+results/throughput/isolation_one_change/*/*/run.log
+mlflow.db*
+mlartifacts/
+
+# Editors
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+llama3.1-8b/dataset/
+llama3.1-8b/dataset/
+llama3.1-8b/dataset/
+mlruns/
+mlartifacts/

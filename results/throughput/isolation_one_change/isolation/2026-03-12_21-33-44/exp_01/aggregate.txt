@@ -1,0 +1,11 @@
+Experiment:    exp_01
+Description:   +quantization=fp8 only. All else=baseline.
+Runs:          4/4 succeeded
+Mean tok/s:    1328.08
+Stdev tok/s:   2.55
+CV%:           0.2%
+Min tok/s:     1324.84
+Max tok/s:     1330.22
+All values:    ['1324.84', '1330.00', '1327.26', '1330.22']
+Valid rate:    4/4
+Speedup vs exp_00: +30.59%

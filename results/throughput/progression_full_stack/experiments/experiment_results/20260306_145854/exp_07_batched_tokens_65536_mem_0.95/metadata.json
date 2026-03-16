@@ -1,0 +1,9 @@
+{
+    "experiment": "exp_07_batched_tokens_65536_mem_0.95",
+    "batch_size": 512,
+    "dtype": "bfloat16",
+    "description": "+max_num_batched_tokens=65536 + gpu_mem_util 0.98->0.95 (required) + chunked_prefill=True",
+    "exit_code": 0,
+    "duration_seconds": 715,
+    "timestamp": "2026-03-06T11:44:05Z"
+}

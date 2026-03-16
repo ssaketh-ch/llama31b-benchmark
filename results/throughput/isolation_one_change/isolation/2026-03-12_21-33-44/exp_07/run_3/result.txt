@@ -1,0 +1,10 @@
+Experiment:       exp_07
+Run:              3/4
+Description:      +chunked_prefill=True + max_num_batched_tokens=65536. All else=baseline.
+Batch Size:       16
+Dtype:            bfloat16
+Tokens/sec:       FAILED
+Samples/sec:      FAILED
+Valid:            FAILED
+Duration:         166s
+Exit Code:        0

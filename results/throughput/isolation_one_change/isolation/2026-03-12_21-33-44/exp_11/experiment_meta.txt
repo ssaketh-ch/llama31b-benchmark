@@ -1,0 +1,7 @@
+exp_id:       exp_11
+description:  +num_scheduler_steps=2 only [vLLM 0.10.0]. All else=baseline.
+batch_size:   16
+dtype:        bfloat16
+runs:         4
+timestamp:    2026-03-13T17:43:49Z
+sut_func:     sut_exp11

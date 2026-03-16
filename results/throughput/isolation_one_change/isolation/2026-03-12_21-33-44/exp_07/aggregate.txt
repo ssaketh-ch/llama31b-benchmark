@@ -1,0 +1,4 @@
+Experiment:    exp_07
+Description:   +chunked_prefill=True + max_num_batched_tokens=65536. All else=baseline.
+Runs:          0/4 succeeded
+Mean tok/s:    FAILED

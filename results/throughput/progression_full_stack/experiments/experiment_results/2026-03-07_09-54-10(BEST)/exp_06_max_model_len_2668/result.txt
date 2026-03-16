@@ -1,0 +1,9 @@
+Experiment:       exp_06_max_model_len_2668
+Description:      +max_model_len=2668: dataset minimum. 148x concurrency
+Batch Size:       512
+Dtype:            bfloat16
+Tokens/sec:       3044.84
+Samples/sec:      23.7878
+Valid:            INVALID
+Duration:         612s
+Exit Code:        0

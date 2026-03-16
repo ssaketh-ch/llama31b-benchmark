@@ -1,0 +1,10 @@
+Experiment:       exp_13
+Run:              4/4
+Description:      +compilation_config=3 only [vLLM 0.10.0]. All else=baseline.
+Batch Size:       16
+Dtype:            bfloat16
+Tokens/sec:       1038.22
+Samples/sec:      8.11111
+Valid:            VALID
+Duration:         1721s
+Exit Code:        0

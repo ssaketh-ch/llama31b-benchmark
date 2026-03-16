@@ -1,0 +1,1 @@
+{"experiment":"exp_07_batched_tokens_65536","batch_size":512,"dtype":"bfloat16","description":"+max_num_batched_tokens=65536 + gpu_mem->0.95 + chunked_prefill","exit_code":0,"duration_seconds":639,"timestamp":"2026-03-07T06:35:26Z"}

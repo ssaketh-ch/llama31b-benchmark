@@ -1,0 +1,9 @@
+Experiment:       exp_12_async_scheduling
+Description:      +async_scheduling=True: overlap scheduler with GPU (new in vLLM 0.10.0)
+Batch Size:       1024
+Dtype:            bfloat16
+Tokens/sec:       2958.9
+Samples/sec:      23.1164
+Valid:            INVALID
+Duration:         637s
+Exit Code:        0

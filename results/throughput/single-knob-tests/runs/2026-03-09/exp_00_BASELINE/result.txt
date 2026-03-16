@@ -1,0 +1,9 @@
+Experiment:       exp_00_BASELINE
+Description:      BASELINE: FP8+TP1+BS1024+max_len2668+sort+expandable_segments. All other flags OFF.
+Batch Size:       1024
+Dtype:            bfloat16
+Tokens/sec:       2839.71
+Samples/sec:      22.1853
+Valid:            VALID
+Duration:         1293s
+Exit Code:        0

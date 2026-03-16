@@ -1,0 +1,11 @@
+Experiment:    exp_04
+Description:   +max_model_len=2668 only. No quant, no sort, all else=baseline.
+Runs:          4/4 succeeded
+Mean tok/s:    1035.81
+Stdev tok/s:   8.85
+CV%:           0.9%
+Min tok/s:     1023.95
+Max tok/s:     1042.92
+All values:    ['1042.92', '1042.20', '1034.16', '1023.95']
+Valid rate:    4/4
+Speedup vs exp_00: +1.85%

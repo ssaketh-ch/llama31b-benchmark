@@ -1,0 +1,9 @@
+{
+    "experiment": "exp_01_baseline_bf16_bs16_no_quant",
+    "batch_size": 16,
+    "dtype": "bfloat16",
+    "description": "Baseline: BF16, TP=1, BS=16 (base command default), no quantization",
+    "exit_code": 1,
+    "duration_seconds": 5,
+    "timestamp": "2026-03-06T06:44:43Z"
+}

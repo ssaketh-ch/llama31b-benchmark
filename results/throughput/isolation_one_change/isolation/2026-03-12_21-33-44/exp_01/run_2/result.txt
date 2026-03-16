@@ -1,0 +1,10 @@
+Experiment:       exp_01
+Run:              2/4
+Description:      +quantization=fp8 only. All else=baseline.
+Batch Size:       16
+Dtype:            bfloat16
+Tokens/sec:       1330
+Samples/sec:      10.3906
+Valid:            VALID
+Duration:         2649s
+Exit Code:        0

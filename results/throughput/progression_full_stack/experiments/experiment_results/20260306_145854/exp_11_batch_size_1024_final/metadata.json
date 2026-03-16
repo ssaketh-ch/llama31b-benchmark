@@ -1,0 +1,9 @@
+{
+    "experiment": "exp_11_batch_size_1024_final",
+    "batch_size": 1024,
+    "dtype": "bfloat16",
+    "description": "batch_size 512->1024: +3.4pct throughput. BS=2048 regresses. Optimal confirmed.",
+    "exit_code": 0,
+    "duration_seconds": 691,
+    "timestamp": "2026-03-06T12:33:38Z"
+}

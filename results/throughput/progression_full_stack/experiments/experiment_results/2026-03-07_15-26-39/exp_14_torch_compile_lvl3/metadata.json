@@ -1,0 +1,1 @@
+{"experiment":"exp_14_torch_compile_lvl3","batch_size":1024,"dtype":"bfloat16","description":"+compilation_config=3: torch.compile level 3 (first batch ~2-5min compile)","exit_code":0,"duration_seconds":648,"timestamp":"2026-03-07T13:46:32Z"}

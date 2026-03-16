@@ -1,0 +1,9 @@
+Experiment:       exp_03_tensor_parallel_1
+Description:      +TP=1 explicit: removes inter-GPU comm
+Batch Size:       16
+Dtype:            bfloat16
+Tokens/sec:       1324.83
+Samples/sec:      10.3503
+Valid:            VALID
+Duration:         1343s
+Exit Code:        0

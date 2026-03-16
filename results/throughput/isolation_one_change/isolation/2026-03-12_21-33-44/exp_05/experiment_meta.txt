@@ -1,0 +1,7 @@
+exp_id:       exp_05
+description:  +sort_by_input_length only. No quant, no KV resize, all else=baseline.
+batch_size:   16
+dtype:        bfloat16
+runs:         4
+timestamp:    2026-03-13T07:11:00Z
+sut_func:     sut_exp05

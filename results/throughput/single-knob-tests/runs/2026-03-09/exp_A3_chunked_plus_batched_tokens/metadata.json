@@ -1,0 +1,1 @@
+{"experiment":"exp_A3_chunked_plus_batched_tokens","batch_size":1024,"dtype":"bfloat16","description":"+chunked_prefill=True + max_num_batched_tokens=65536. Logical pair. All other flags=baseline.","exit_code":0,"duration_seconds":1289,"timestamp":"2026-03-09T09:26:14Z"}

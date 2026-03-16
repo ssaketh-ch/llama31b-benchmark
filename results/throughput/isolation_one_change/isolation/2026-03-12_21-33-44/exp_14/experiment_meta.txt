@@ -1,0 +1,7 @@
+exp_id:       exp_14
+description:  +VLLM_ATTENTION_BACKEND=FLASHINFER only [vLLM 0.10.0]. All else=baseline.
+batch_size:   16
+dtype:        bfloat16
+runs:         4
+timestamp:    2026-03-13T23:55:59Z
+sut_func:     sut_exp14

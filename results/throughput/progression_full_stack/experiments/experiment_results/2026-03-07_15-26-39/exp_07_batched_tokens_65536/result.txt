@@ -1,0 +1,9 @@
+Experiment:       exp_07_batched_tokens_65536
+Description:      +max_num_batched_tokens=65536 + gpu_mem->0.95 + chunked_prefill
+Batch Size:       512
+Dtype:            bfloat16
+Tokens/sec:       2813.56
+Samples/sec:      21.9809
+Valid:            VALID
+Duration:         660s
+Exit Code:        0

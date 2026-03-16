@@ -1,0 +1,9 @@
+{
+    "experiment": "exp_02_fp8_quantization",
+    "batch_size": 16,
+    "dtype": "bfloat16",
+    "description": "+FP8 quantization: weights 8.5GB -> 3.47GB",
+    "exit_code": 0,
+    "duration_seconds": 1304,
+    "timestamp": "2026-03-06T10:20:49Z"
+}

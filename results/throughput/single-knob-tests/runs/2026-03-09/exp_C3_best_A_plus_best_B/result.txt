@@ -1,0 +1,9 @@
+Experiment:       exp_C3_best_A_plus_best_B
+Description:      Best Phase A + best Phase B. EDIT SUT BEFORE RUNNING based on A+B results.
+Batch Size:       1024
+Dtype:            bfloat16
+Tokens/sec:       2914.94
+Samples/sec:      22.7729
+Valid:            VALID
+Duration:         1384s
+Exit Code:        0

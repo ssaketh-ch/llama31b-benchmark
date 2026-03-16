@@ -1,0 +1,10 @@
+Experiment:       exp_14
+Run:              4/4
+Description:      +VLLM_ATTENTION_BACKEND=FLASHINFER only [vLLM 0.10.0]. All else=baseline.
+Batch Size:       16
+Dtype:            bfloat16
+Tokens/sec:       964.625
+Samples/sec:      7.53613
+Valid:            VALID
+Duration:         1845s
+Exit Code:        0

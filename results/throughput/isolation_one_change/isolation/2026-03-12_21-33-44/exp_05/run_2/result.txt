@@ -1,0 +1,10 @@
+Experiment:       exp_05
+Run:              2/4
+Description:      +sort_by_input_length only. No quant, no KV resize, all else=baseline.
+Batch Size:       16
+Dtype:            bfloat16
+Tokens/sec:       1031.36
+Samples/sec:      8.05746
+Valid:            VALID
+Duration:         3388s
+Exit Code:        0

@@ -12,6 +12,7 @@ mlperf-inference-5.1-redhat/
 
 # Local runs and artifacts
 results/*
+!results/README.md
 !results/throughput/
 !results/throughput/**
 !results/accuracy/

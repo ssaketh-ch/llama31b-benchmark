@@ -3,34 +3,63 @@
 ## What this is
 Reproducible benchmarking and tuning harness for Llama-3.1-8B on NVIDIA H200 (MIG 71GB) using vLLM. One-knob tests, isolation runs, MLflow logging, and summarized results.
 
-## Quickstart
+## Quickstart (step-by-step)
+1) Clone the upstream MLPerf Inference repo (needed for loadgen and reference files):
 ```bash
-# From repo root (this repo is self-contained)
+git clone --recurse-submodules https://github.com/mlcommons/inference.git \
+ --depth 1
+
+```
+2) Clone this repo (for tuned scripts, SUTs, and results):
+```bash
+git clone https://github.com/ssaketh-ch/llama31b-benchmark.git
+cd llama31b-benchmark
+```
+3) Set helper paths (from this repo root):
+```bash
 export INFERENCE_DIR=$(pwd)/llama3.1-8b
 export CHECKPOINT_PATH=$INFERENCE_DIR/model
 export DATASET_PATH=$INFERENCE_DIR/dataset
 export MLFLOW_TRACKING_URI=http://localhost:5000
-
-# (Optional) Download model locally; requires a Hugging Face token with access
-# Usage: ./scripts/download_model.sh <model_repo> <local_dir>
+```
+4) Create and activate the conda env:
+```bash
+conda create -y -n llama3.1-8b python=3.10
+conda activate llama3.1-8b
+conda install -y -c conda-forge libstdcxx-ng=12
+```
+5) Install dependencies and loadgen:
+```bash
+pip install -r env/requirements.txt
+cd ../inference/loadgen && pip install -e . && cd -
+```
+6) Download the dataset (datacenter eval) with the MLCommons downloader:
+```bash
+bash <(curl -s https://raw.githubusercontent.com/mlcommons/r2-downloader/refs/heads/main/mlc-r2-downloader.sh) \
+	https://inference.mlcommons-storage.org/metadata/llama3-1-8b-cnn-eval.uri \
+	-d "$DATASET_PATH"
+```
+7) Download the model (requires a Hugging Face token with access):
+```bash
+huggingface-cli login
 ./scripts/download_model.sh meta-llama/Meta-Llama-3.1-8B-Instruct "$CHECKPOINT_PATH"
-
+```
+8) Run:
+```bash
 # Tuned baseline (FP8, TP=1, BS=1024, max_len=2668)
 ./scripts/baseline.sh exp_00
 
 # One single-knob test (e.g., prefix caching)
 ./scripts/baseline.sh exp_A5
 
-# Isolation (OG baseline, one change vs OG, 4 runs)
+# Isolation (OG baseline vs one change)
 ./scripts/main_run.sh exp_00
 ./scripts/main_run.sh exp_A5
 ```
 
-Repo notes:
-- You still need the upstream MLPerf Inference repo for loadgen and reference assets (clone from https://github.com/mlcommons/inference.git as shown below).
-- If you want to reuse the processed datasets/logs stored in this repo (instead of downloading fresh), also clone this repo and keep its `results/` and `llama3.1-8b` paths intact. Otherwise, follow the download steps below.
-
-Note: The Quickstart scripts use the tuned FP8 / BS=1024 baseline. The plain Python examples below show the reference BF16 / BS=16 commands from the main repo.
+Notes:
+- Quickstart scripts use the tuned FP8 / BS=1024 baseline. The plain Python examples below show the upstream BF16 / BS=16 reference commands.
+- If you want to reuse processed datasets/logs from this repo, keep `results/` and `llama3.1-8b/` intact after cloning.
 
 ## MLflow logging and UI
 - What we log: run params (experiment id, batch size, flags), metrics (tokens/s, samples/s, duration, validity), and latency summaries when available. Artifacts include mlperf logs and the SUT snapshot for that run.
@@ -49,26 +78,15 @@ mlflow server \
 export MLFLOW_TRACKING_URI=http://localhost:5000
 ```
 - UI: open http://localhost:5000 to browse runs. Stop the server with Ctrl+C.
- - Artifacts land in `mlruns/` by default (local), or in `mlartifacts/` when using the server env vars above.
+- Artifacts land in `mlruns/` by default (local), or in `mlartifacts/` when using the server env vars above.
 
-## Install (submission-agnostic)
-```bash
-# Clone MLPerf Inference (needed for loadgen and reference files)
-git clone --recurse-submodules https://github.com/mlcommons/inference.git
-
-# Python + CUDA runtime
-conda create -y -n llama3.1-8b python=3.10
-conda activate llama3.1-8b
-conda install -y -c conda-forge libstdcxx-ng=12
-
-# Project deps
-pip install -r env/requirements.txt
-
-# LoadGen (for MLPerf harness integration, still useful for local runs)
-cd $(pwd)/../loadgen
-pip install -e .
-cd -
-```
+## Setup (detailed)
+- Clone the upstream MLPerf repo: `git clone --recurse-submodules https://github.com/mlcommons/inference.git`
+- Clone this repo and `cd` into it.
+- Set helper vars (same as Quickstart): `INFERENCE_DIR`, `CHECKPOINT_PATH`, `DATASET_PATH`, `MLFLOW_TRACKING_URI`.
+- Create env: `conda create -y -n llama3.1-8b python=3.10 && conda activate llama3.1-8b && conda install -y -c conda-forge libstdcxx-ng=12`.
+- Install deps: `pip install -r env/requirements.txt`.
+- Install loadgen: `cd ../inference/loadgen && pip install -e . && cd -`.
 
 ## Get the model 
 Requires Hugging Face access to meta-llama/Meta-Llama-3.1-8B-Instruct.
@@ -79,23 +97,32 @@ huggingface-cli login  # ensure your token has model access
 
 Alternative with git-xet (needs a Hugging Face write token):
 ```bash
+# Install git-xet: https://hf.co/docs/hub/git-xet
 curl -sSfL https://hf.co/git-xet/install.sh | sh
-# When prompted for a password, use a Hugging Face access token with write access (create at https://huggingface.co/settings/tokens)
+
+# When prompted for a password, use an access token with write permissions
+# (create at https://huggingface.co/settings/tokens)
 git clone https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct
 ```
 
-## Get the dataset (CNN/DailyMail eval + calibration, no mlcr)
+## Get the dataset (CNN/DailyMail)
+Datacenter eval set (required):
 ```bash
-DL_SCRIPT="https://raw.githubusercontent.com/mlcommons/r2-downloader/refs/heads/main/mlc-r2-downloader.sh"
-
-# Full datacenter eval
-bash <(curl -s "$DL_SCRIPT") https://inference.mlcommons-storage.org/metadata/llama3-1-8b-cnn-eval.uri -d "$DATASET_PATH"
-
+bash <(curl -s https://raw.githubusercontent.com/mlcommons/r2-downloader/refs/heads/main/mlc-r2-downloader.sh) \
+	https://inference.mlcommons-storage.org/metadata/llama3-1-8b-cnn-eval.uri \
+	-d "$DATASET_PATH"
+```
+Optional:
+```bash
 # 5k eval subset
-bash <(curl -s "$DL_SCRIPT") https://inference.mlcommons-storage.org/metadata/llama3-1-8b-sample-cnn-eval-5000.uri -d "$DATASET_PATH"
+bash <(curl -s https://raw.githubusercontent.com/mlcommons/r2-downloader/refs/heads/main/mlc-r2-downloader.sh) \
+	https://inference.mlcommons-storage.org/metadata/llama3-1-8b-sample-cnn-eval-5000.uri \
+	-d "$DATASET_PATH"
 
 # Calibration set
-bash <(curl -s "$DL_SCRIPT") https://inference.mlcommons-storage.org/metadata/llama3-1-8b-cnn-dailymail-calibration.uri -d "$DATASET_PATH"
+bash <(curl -s https://raw.githubusercontent.com/mlcommons/r2-downloader/refs/heads/main/mlc-r2-downloader.sh) \
+	https://inference.mlcommons-storage.org/metadata/llama3-1-8b-cnn-dailymail-calibration.uri \
+	-d "$DATASET_PATH"
 ```
 
 ## Run performance (plain python, no submission tooling)

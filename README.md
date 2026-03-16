@@ -1,51 +1,86 @@
-# Llama-3.1-8B vLLM Benchmark Harness (H200 MIG)
+# Llama-3.1-8B vLLM Benchmark Harness on H200
 
-## What this is
+## What this is repo for?
 Reproducible benchmarking and tuning harness for Llama-3.1-8B on NVIDIA H200 (MIG 71GB) using vLLM. One-knob tests, isolation runs, MLflow logging, and summarized results.
 
-## Quickstart (step-by-step)
-1) Clone the upstream MLPerf Inference repo (needed for loadgen and reference files):
-```bash
-git clone --recurse-submodules https://github.com/mlcommons/inference.git \
- --depth 1
+## System info (runs captured here)
+- GPU: NVIDIA H200 NVL, MIG enabled, driver 570.133.20, CUDA 12.8
+- CPU: Dual Intel Xeon Platinum 8480+ (224 vCPUs total)
+- RAM: 256 GB
+- Key libraries: vLLM 0.10.0, PyTorch 2.7.1, Transformers 4.53.2
 
-```
-2) Clone this repo (for tuned scripts, SUTs, and results):
+## Quickstart (step-by-step)
+1) Install prerequisites
+- GPU: NVIDIA driver + CUDA 12.1
+- Conda: e.g.
 ```bash
-git clone https://github.com/ssaketh-ch/llama31b-benchmark.git
-cd llama31b-benchmark
+mkdir -p ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-py310_23.5.2-0-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm ~/miniconda3/miniconda.sh
+~/miniconda3/bin/conda init
 ```
-3) Set helper paths (from this repo root):
+
+2) Clone the upstream MLPerf Inference repo (needed for loadgen/reference)
 ```bash
-export INFERENCE_DIR=$(pwd)/llama3.1-8b
-export CHECKPOINT_PATH=$INFERENCE_DIR/model
-export DATASET_PATH=$INFERENCE_DIR/dataset
-export MLFLOW_TRACKING_URI=http://localhost:5000
+git clone --recurse-submodules https://github.com/mlcommons/inference.git --depth 1
+cd inference
 ```
-4) Create and activate the conda env:
+
+3) Set helper paths
+```bash
+export ROOT=$PWD/inference
+export LLAMA_FOLDER=$PWD/language/llama3.1-8b
+export LOADGEN_FOLDER=$PWD/loadgen
+export DATASET_FOLDER=$LLAMA_FOLDER/dataset
+```
+
+4) Create and activate the conda env
 ```bash
 conda create -y -n llama3.1-8b python=3.10
 conda activate llama3.1-8b
 conda install -y -c conda-forge libstdcxx-ng=12
 ```
-5) Install dependencies and loadgen:
+
+5) Install requirements and loadgen (from $LLAMA_FOLDER)
 ```bash
-pip install -r env/requirements.txt
-cd ../inference/loadgen && pip install -e . && cd -
+cd $LLAMA_FOLDER
+pip install -r requirements.txt
+cd $LOADGEN_FOLDER && pip install -e . && cd -
 ```
-6) Download the dataset (datacenter eval) with the MLCommons downloader:
+
+6) Download the dataset (datacenter eval) with the MLCommons downloader
 ```bash
+mkdir -p "$DATASET_FOLDER"
 bash <(curl -s https://raw.githubusercontent.com/mlcommons/r2-downloader/refs/heads/main/mlc-r2-downloader.sh) \
 	https://inference.mlcommons-storage.org/metadata/llama3-1-8b-cnn-eval.uri \
-	-d "$DATASET_PATH"
+	-d "$DATASET_FOLDER"
 ```
-7) Download the model (requires a Hugging Face token with access):
+
+7) Download the model (choose one)
+- Scripted HF download (needs a Hugging Face token with access):
 ```bash
 huggingface-cli login
-./scripts/download_model.sh meta-llama/Meta-Llama-3.1-8B-Instruct "$CHECKPOINT_PATH"
+./scripts/download_model.sh meta-llama/Meta-Llama-3.1-8B-Instruct "$LLAMA_FOLDER/model"
 ```
-8) Run:
+- Simplest git-xet clone (needs a HF token with write access):
 ```bash
+curl -sSfL https://hf.co/git-xet/install.sh | sh
+git clone https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct "$LLAMA_FOLDER/model"
+```
+
+8) Clone this repo inside the LLAMA folder and use the scripts
+```bash
+cd $LLAMA_FOLDER
+git clone https://github.com/ssaketh-ch/llama31b-benchmark.git
+cd llama31b-benchmark
+
+# Optional: set local helper vars for this repo
+export INFERENCE_DIR=$(pwd)/llama3.1-8b
+export CHECKPOINT_PATH=$INFERENCE_DIR/model
+export DATASET_PATH=$INFERENCE_DIR/dataset
+export MLFLOW_TRACKING_URI=http://localhost:5000
+
 # Tuned baseline (FP8, TP=1, BS=1024, max_len=2668)
 ./scripts/baseline.sh exp_00
 
@@ -59,7 +94,7 @@ huggingface-cli login
 
 Notes:
 - Quickstart scripts use the tuned FP8 / BS=1024 baseline. The plain Python examples below show the upstream BF16 / BS=16 reference commands.
-- If you want to reuse processed datasets/logs from this repo, keep `results/` and `llama3.1-8b/` intact after cloning.
+- Keep `results/` and `llama3.1-8b/` intact after cloning if you want to reuse processed datasets/logs.
 
 ## MLflow logging and UI
 - What we log: run params (experiment id, batch size, flags), metrics (tokens/s, samples/s, duration, validity), and latency summaries when available. Artifacts include mlperf logs and the SUT snapshot for that run.

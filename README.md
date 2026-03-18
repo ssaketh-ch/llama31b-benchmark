@@ -283,16 +283,7 @@ See the variant and isolation result folders for detailed experiment logs and CS
 - Official MLPerf reference instructions and Docker/mlcr automation: https://github.com/mlcommons/inference/tree/master/language/llama3.1-8b
 
 Add accuracy runs and reports under [results/accuracy/](results/accuracy/) when you start accuracy-focused tuning.
-<<<<<<< HEAD
-=======
 
-
-# llama31b-benchmark
-Reference implementations of MLPerf® inference benchmarks
-
-## Latest Experiments and Results (March 2026)
-
-This repository now includes:
 
 **Key findings:**
 

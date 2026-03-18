@@ -1,0 +1,9 @@
+Experiment:       exp_A3_chunked_plus_batched_tokens
+Description:      +chunked_prefill=True + max_num_batched_tokens=65536. Logical pair. All other flags=baseline.
+Batch Size:       1024
+Dtype:            bfloat16
+Tokens/sec:       2852.89
+Samples/sec:      22.2882
+Valid:            VALID
+Duration:         1289s
+Exit Code:        0

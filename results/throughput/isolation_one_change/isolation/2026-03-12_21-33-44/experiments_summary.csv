@@ -14,3 +14,4 @@ exp_11,+num_scheduler_steps=2 only [vLLM 0.10.0]. All else=baseline.,997.02,5.80
 exp_12,+num_scheduler_steps=4 only [vLLM 0.10.0]. All else=baseline.,1019.53,6.05,0.6%,1012.25,1025.97,"1012.25,1017.22,1025.97,1022.68",+0.25%
 exp_13,+compilation_config=3 only [vLLM 0.10.0]. All else=baseline.,1030.36,5.47,0.5%,1026.01,1038.22,"1027.37,1026.01,1029.85,1038.22",+1.31%
 exp_14,+VLLM_ATTENTION_BACKEND=FLASHINFER only [vLLM 0.10.0]. All else=baseline.,958.22,10.18,1.1%,943.07,964.62,"943.07,961.64,963.54,964.62",-5.78%
+exp_15,+ENFORCE_EAGER=True only [vLLM 0.10.0]. All else=baseline.,944.00,4.70,0.5%,938.52,949.44,"938.52,944.00,945.23,949.44",-7.19%

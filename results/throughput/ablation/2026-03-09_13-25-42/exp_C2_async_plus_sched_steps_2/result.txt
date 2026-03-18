@@ -1,0 +1,10 @@
+Experiment:       exp_C2_async_plus_sched_steps_2
+Description:      +async_scheduling + num_scheduler_steps=2. Run only if B1 OR B2 positive.
+Batch Size:       1024
+Dtype:            bfloat16
+Tokens/sec:       FAILED
+Samples/sec:      FAILED
+Valid:            FAILED
+Error Type:       COMPILE_FAILED
+Duration:         92s
+Exit Code:        0

@@ -55,15 +55,10 @@ class SUT:
         self.model = LLM(
             self.model_path,
             dtype="bfloat16",                  # OG dtype
-            quantization=None,                 # OG: NO quantization
             tensor_parallel_size=1,            # MIG: 1 GPU
-            gpu_memory_utilization=0.90,       # vLLM default (OG never sets this)
-            max_model_len=131072,              # Llama 3.1 default (OG never sets this)
             enable_prefix_caching=False,       # explicitly off
             enable_chunked_prefill=False,      # explicitly off
             enforce_eager=False,               # CUDA graphs
-            cpu_offload_gb=0,
-            scheduler_delay_factor=0.0,
             # max_num_batched_tokens: NOT SET  (vLLM auto)
             # async_scheduling:       NOT SET  (vLLM default)
             # num_scheduler_steps:    NOT SET  (vLLM default = 1)

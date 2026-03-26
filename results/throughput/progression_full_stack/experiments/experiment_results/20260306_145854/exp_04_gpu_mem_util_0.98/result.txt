@@ -1,9 +1,0 @@
-Experiment:       exp_04_gpu_mem_util_0.98
-Description:      +gpu_memory_utilization=0.98: more VRAM for KV cache
-Batch Size:       16
-Dtype:            bfloat16
-Tokens/sec:       1379.74
-Samples/sec:      10.7793
-Valid:            VALID
-Duration:         1306s
-Exit Code:        0

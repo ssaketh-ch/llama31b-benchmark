@@ -1,1 +1,0 @@
-{"experiment":"exp_C3_best_A_plus_best_B","batch_size":1024,"dtype":"bfloat16","description":"Best Phase A + best Phase B. EDIT SUT BEFORE RUNNING based on A+B results.","exit_code":0,"duration_seconds":1384,"timestamp":"2026-03-09T13:29:18Z"}

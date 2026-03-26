@@ -1,9 +1,0 @@
-{
-    "experiment": "exp_08_expandable_segments_segfault_fix",
-    "batch_size": 512,
-    "dtype": "bfloat16",
-    "description": "+expandable_segments:True: root cause fix for all mid-run segfaults",
-    "exit_code": 0,
-    "duration_seconds": 684,
-    "timestamp": "2026-03-06T08:43:52Z"
-}

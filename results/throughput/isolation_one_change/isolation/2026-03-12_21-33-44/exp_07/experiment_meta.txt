@@ -1,7 +1,0 @@
-exp_id:       exp_07
-description:  +chunked_prefill=True + max_num_batched_tokens=65536. All else=baseline.
-batch_size:   16
-dtype:        bfloat16
-runs:         4
-timestamp:    2026-03-13T11:12:20Z
-sut_func:     sut_exp07

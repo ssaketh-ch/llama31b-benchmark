@@ -1,1 +1,0 @@
-{"experiment":"exp_09_sort_by_length","batch_size":512,"dtype":"bfloat16","description":"+sort by input length: latency -24pct, throughput +0.7pct","exit_code":0,"duration_seconds":674,"timestamp":"2026-03-07T18:42:57Z"}

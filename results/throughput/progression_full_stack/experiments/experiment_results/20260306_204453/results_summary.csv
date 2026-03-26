@@ -1,2 +1,0 @@
-experiment,batch_size,dtype,tokens_per_sec,samples_per_sec,valid,exit_code,duration_s,description
-exp_11_batch_size_1024_final,1024,bfloat16,2945.87,23.0146,INVALID,0,668,"batch_size 512->1024: +3.4pct throughput. BS=2048 regresses. Optimal confirmed."

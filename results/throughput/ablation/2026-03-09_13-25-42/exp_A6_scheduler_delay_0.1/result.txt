@@ -1,9 +1,0 @@
-Experiment:       exp_A6_scheduler_delay_0.1
-Description:      +scheduler_delay_factor=0.1 only. All other flags=baseline.
-Batch Size:       1024
-Dtype:            bfloat16
-Tokens/sec:       2312.27
-Samples/sec:      18.0646
-Valid:            VALID
-Duration:         1574s
-Exit Code:        0

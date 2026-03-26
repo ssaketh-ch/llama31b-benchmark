@@ -1,1 +1,0 @@
-{"experiment":"exp_B5_flashinfer","batch_size":1024,"dtype":"bfloat16","description":"+VLLM_ATTENTION_BACKEND=FLASHINFER only [vLLM 0.10.0]. All other flags=baseline.","exit_code":0,"duration_seconds":1544,"timestamp":"2026-03-09T12:39:20Z"}

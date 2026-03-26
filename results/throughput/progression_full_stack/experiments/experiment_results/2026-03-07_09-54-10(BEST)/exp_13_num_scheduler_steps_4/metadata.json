@@ -1,1 +1,0 @@
-{"experiment":"exp_13_num_scheduler_steps_4","batch_size":1024,"dtype":"bfloat16","description":"+num_scheduler_steps=4: 4 decode steps per scheduler call, reduces GIL pressure","exit_code":0,"duration_seconds":695,"timestamp":"2026-03-07T07:43:56Z"}

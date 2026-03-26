@@ -1,1 +1,0 @@
-{"experiment":"exp_A5_prefix_cache_on","batch_size":1024,"dtype":"bfloat16","description":"+enable_prefix_caching=True only. Expect flat or regression on CNN DailyMail.","exit_code":0,"duration_seconds":849,"timestamp":"2026-03-09T10:07:38Z"}

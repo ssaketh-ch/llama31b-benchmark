@@ -1,1 +1,0 @@
-{"experiment":"exp_A1_chunked_prefill","batch_size":1024,"dtype":"bfloat16","description":"+enable_chunked_prefill=True only. All other flags=baseline.","exit_code":0,"duration_seconds":1404,"timestamp":"2026-03-09T08:41:33Z"}

@@ -1,1 +1,0 @@
-{"experiment":"exp_08_expandable_segments","batch_size":512,"dtype":"bfloat16","description":"+expandable_segments:True: root cause fix for segfaults","exit_code":0,"duration_seconds":637,"timestamp":"2026-03-07T06:46:54Z"}

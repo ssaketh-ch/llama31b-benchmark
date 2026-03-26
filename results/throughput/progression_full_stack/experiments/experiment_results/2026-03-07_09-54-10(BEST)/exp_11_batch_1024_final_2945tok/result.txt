@@ -1,9 +1,0 @@
-Experiment:       exp_11_batch_1024_final_2945tok
-Description:      batch_size 512->1024: +3.4pct. 2945 tok/s on vLLM 0.10.0.
-Batch Size:       1024
-Dtype:            bfloat16
-Tokens/sec:       3064.41
-Samples/sec:      23.9407
-Valid:            INVALID
-Duration:         610s
-Exit Code:        0

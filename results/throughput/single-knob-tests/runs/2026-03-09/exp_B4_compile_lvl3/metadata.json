@@ -1,1 +1,0 @@
-{"experiment":"exp_B4_compile_lvl3","batch_size":1024,"dtype":"bfloat16","description":"+compilation_config=3 only [vLLM 0.10.0]. First batch ~2-5min compile. All other flags=baseline.","exit_code":0,"duration_seconds":1288,"timestamp":"2026-03-09T12:12:45Z"}

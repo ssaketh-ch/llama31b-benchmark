@@ -1,9 +1,0 @@
-Experiment:       exp_15_flashinfer_v0.3_retest
-Description:      FlashInfer v0.3.0 retest: upgraded in vLLM 0.10.x, previously regressed on 0.8.x
-Batch Size:       1024
-Dtype:            bfloat16
-Tokens/sec:       2689.55
-Samples/sec:      21.0121
-Valid:            VALID
-Duration:         728s
-Exit Code:        0

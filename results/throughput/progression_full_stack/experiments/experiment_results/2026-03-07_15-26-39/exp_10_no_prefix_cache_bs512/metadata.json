@@ -1,1 +1,0 @@
-{"experiment":"exp_10_no_prefix_cache_bs512","batch_size":512,"dtype":"bfloat16","description":"+enable_prefix_caching=False explicit: zero hit rate on CNN DailyMail","exit_code":0,"duration_seconds":653,"timestamp":"2026-03-07T12:55:40Z"}

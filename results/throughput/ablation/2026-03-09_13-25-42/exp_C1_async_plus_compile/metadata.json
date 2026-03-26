@@ -1,1 +1,0 @@
-{"experiment":"exp_C1_async_plus_compile","batch_size":1024,"dtype":"bfloat16","description":"+async_scheduling + compilation_config=3. Run only if B1 AND B4 both positive.","exit_code":0,"duration_seconds":1369,"timestamp":"2026-03-09T13:03:00Z"}

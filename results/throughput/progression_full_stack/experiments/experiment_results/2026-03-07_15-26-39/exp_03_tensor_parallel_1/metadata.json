@@ -1,1 +1,0 @@
-{"experiment":"exp_03_tensor_parallel_1","batch_size":16,"dtype":"bfloat16","description":"+TP=1 explicit: removes inter-GPU comm","exit_code":0,"duration_seconds":1343,"timestamp":"2026-03-07T11:16:02Z"}

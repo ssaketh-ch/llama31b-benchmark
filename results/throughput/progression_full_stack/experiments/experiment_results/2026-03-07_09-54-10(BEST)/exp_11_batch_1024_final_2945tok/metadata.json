@@ -1,1 +1,0 @@
-{"experiment":"exp_11_batch_1024_final_2945tok","batch_size":1024,"dtype":"bfloat16","description":"batch_size 512->1024: +3.4pct. 2945 tok/s on vLLM 0.10.0.","exit_code":0,"duration_seconds":610,"timestamp":"2026-03-07T07:20:02Z"}

@@ -1,1 +1,0 @@
-{"experiment":"exp_B1_async_scheduling","batch_size":1024,"dtype":"bfloat16","description":"+async_scheduling=True only [vLLM 0.10.0]. All other flags=baseline.","exit_code":0,"duration_seconds":1364,"timestamp":"2026-03-09T10:58:17Z"}

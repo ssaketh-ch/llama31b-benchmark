@@ -1,9 +1,0 @@
-Experiment:       exp_A2_batched_tokens_65536
-Description:      +max_num_batched_tokens=65536 only. chunked_prefill=False. All other flags=baseline.
-Batch Size:       1024
-Dtype:            bfloat16
-Tokens/sec:       2846.39
-Samples/sec:      22.2374
-Valid:            VALID
-Duration:         1291s
-Exit Code:        0

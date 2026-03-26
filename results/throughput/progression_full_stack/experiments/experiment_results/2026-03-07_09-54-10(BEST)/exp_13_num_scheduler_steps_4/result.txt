@@ -1,9 +1,0 @@
-Experiment:       exp_13_num_scheduler_steps_4
-Description:      +num_scheduler_steps=4: 4 decode steps per scheduler call, reduces GIL pressure
-Batch Size:       1024
-Dtype:            bfloat16
-Tokens/sec:       2700.73
-Samples/sec:      21.0995
-Valid:            VALID
-Duration:         695s
-Exit Code:        0

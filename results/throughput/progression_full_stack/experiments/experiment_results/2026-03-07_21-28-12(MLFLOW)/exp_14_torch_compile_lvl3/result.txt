@@ -1,9 +1,0 @@
-Experiment:       exp_14_torch_compile_lvl3
-Description:      +compilation_config=3: torch.compile level 3 (first batch ~2-5min compile)
-Batch Size:       1024
-Dtype:            bfloat16
-Tokens/sec:       2882.8
-Samples/sec:      22.5218
-Valid:            INVALID
-Duration:         683s
-Exit Code:        0

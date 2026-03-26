@@ -1,9 +1,0 @@
-Experiment:       exp_A1_chunked_prefill
-Description:      +enable_chunked_prefill=True only. All other flags=baseline.
-Batch Size:       1024
-Dtype:            bfloat16
-Tokens/sec:       2863.78
-Samples/sec:      22.3733
-Valid:            VALID
-Duration:         1404s
-Exit Code:        0

@@ -1,1 +1,0 @@
-{"experiment":"exp_A4_gpu_mem_0.98","batch_size":1024,"dtype":"bfloat16","description":"+gpu_memory_utilization=0.98 only. All other flags=baseline.","exit_code":0,"duration_seconds":1533,"timestamp":"2026-03-09T09:52:38Z"}

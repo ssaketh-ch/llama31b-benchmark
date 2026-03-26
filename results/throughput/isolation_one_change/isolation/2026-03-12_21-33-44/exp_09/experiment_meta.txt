@@ -1,7 +1,0 @@
-exp_id:       exp_09
-description:  prefix_caching=False explicit (control). Expected: ~=baseline.
-batch_size:   16
-dtype:        bfloat16
-runs:         4
-timestamp:    2026-03-13T13:26:09Z
-sut_func:     sut_exp09

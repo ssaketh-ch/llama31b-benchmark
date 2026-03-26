@@ -1,9 +1,0 @@
-Experiment:       exp_C1_async_plus_compile
-Description:      +async_scheduling + compilation_config=3. Run only if B1 AND B4 both positive.
-Batch Size:       1024
-Dtype:            bfloat16
-Tokens/sec:       2949.93
-Samples/sec:      23.0463
-Valid:            VALID
-Duration:         1369s
-Exit Code:        0

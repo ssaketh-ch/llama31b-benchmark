@@ -1,9 +1,0 @@
-Experiment:       exp_07_batched_tokens_65536_mem_0.95
-Description:      +max_num_batched_tokens=65536, gpu_mem_util 0.98→0.95 (required — activation memory spike)
-Batch Size:       512
-Dtype:            bfloat16
-Tokens/sec:       2742.64
-Samples/sec:      21.4269
-Valid:            VALID
-Duration:         691s
-Exit Code:        0

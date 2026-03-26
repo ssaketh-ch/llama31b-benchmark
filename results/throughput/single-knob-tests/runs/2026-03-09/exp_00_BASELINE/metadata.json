@@ -1,1 +1,0 @@
-{"experiment":"exp_00_BASELINE","batch_size":1024,"dtype":"bfloat16","description":"BASELINE: FP8+TP1+BS1024+max_len2668+sort+expandable_segments. All other flags OFF.","exit_code":0,"duration_seconds":1293,"timestamp":"2026-03-09T08:17:18Z"}

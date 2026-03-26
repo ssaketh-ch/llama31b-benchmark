@@ -1,9 +1,0 @@
-Experiment:       exp_10_no_prefix_cache_bs512
-Description:      +enable_prefix_caching=False: CNN DailyMail has zero cache hit rate
-Batch Size:       512
-Dtype:            bfloat16
-Tokens/sec:       2890.91
-Samples/sec:      22.5852
-Valid:            INVALID
-Duration:         660s
-Exit Code:        0

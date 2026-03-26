@@ -1,1 +1,0 @@
-{"experiment":"exp_B2_sched_steps_2","batch_size":1024,"dtype":"bfloat16","description":"+num_scheduler_steps=2 only [vLLM 0.10.0]. All other flags=baseline.","exit_code":0,"duration_seconds":1589,"timestamp":"2026-03-09T11:25:37Z"}

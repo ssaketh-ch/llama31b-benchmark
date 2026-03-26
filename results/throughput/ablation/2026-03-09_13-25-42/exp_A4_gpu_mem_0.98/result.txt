@@ -1,9 +1,0 @@
-Experiment:       exp_A4_gpu_mem_0.98
-Description:      +gpu_memory_utilization=0.98 only. All other flags=baseline.
-Batch Size:       1024
-Dtype:            bfloat16
-Tokens/sec:       2575.72
-Samples/sec:      20.1228
-Valid:            VALID
-Duration:         1533s
-Exit Code:        0

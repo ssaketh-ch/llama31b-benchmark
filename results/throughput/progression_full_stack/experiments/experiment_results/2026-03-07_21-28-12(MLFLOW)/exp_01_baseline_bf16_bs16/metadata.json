@@ -1,1 +1,0 @@
-{"experiment":"exp_01_baseline_bf16_bs16","batch_size":16,"dtype":"bfloat16","description":"Baseline: BF16, TP=1, BS=16, all flags pinned explicitly","exit_code":0,"duration_seconds":1739,"timestamp":"2026-03-07T16:27:14Z"}

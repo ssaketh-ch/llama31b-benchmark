@@ -1,9 +1,0 @@
-Experiment:       exp_11_batch_size_1024_final
-Description:      batch_size 512->1024: +3.4pct throughput. BS=2048 regresses. Optimal confirmed.
-Batch Size:       1024
-Dtype:            bfloat16
-Tokens/sec:       2746.62
-Samples/sec:      21.458
-Valid:            VALID
-Duration:         691s
-Exit Code:        0

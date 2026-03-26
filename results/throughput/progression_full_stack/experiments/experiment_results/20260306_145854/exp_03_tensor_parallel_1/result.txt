@@ -1,9 +1,0 @@
-Experiment:       exp_03_tensor_parallel_1
-Description:      +TP=1 explicit: removes inter-GPU comm overhead on 8B model
-Batch Size:       16
-Dtype:            bfloat16
-Tokens/sec:       1381.04
-Samples/sec:      10.7893
-Valid:            VALID
-Duration:         1304s
-Exit Code:        0

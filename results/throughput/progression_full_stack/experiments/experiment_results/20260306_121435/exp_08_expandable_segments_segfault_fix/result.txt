@@ -1,9 +1,0 @@
-Experiment:       exp_08_expandable_segments_segfault_fix
-Description:      +expandable_segments:True: root cause fix for all mid-run segfaults
-Batch Size:       512
-Dtype:            bfloat16
-Tokens/sec:       2769.51
-Samples/sec:      21.6368
-Valid:            VALID
-Duration:         684s
-Exit Code:        0

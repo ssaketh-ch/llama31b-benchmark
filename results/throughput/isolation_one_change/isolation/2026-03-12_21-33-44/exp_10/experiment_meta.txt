@@ -1,7 +1,0 @@
-exp_id:       exp_10
-description:  +async_scheduling=True only [vLLM 0.10.0]. All else=baseline.
-batch_size:   16
-dtype:        bfloat16
-runs:         4
-timestamp:    2026-03-13T15:35:32Z
-sut_func:     sut_exp10

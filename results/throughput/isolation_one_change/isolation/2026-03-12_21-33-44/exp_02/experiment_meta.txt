@@ -1,7 +1,0 @@
-exp_id:       exp_02
-description:  +batch_size=512 only. No quant, no sort, all else=baseline.
-batch_size:   512
-dtype:        bfloat16
-runs:         4
-timestamp:    2026-03-12T23:10:44Z
-sut_func:     sut_exp02

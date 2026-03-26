@@ -1,4 +1,0 @@
-Experiment:    exp_06
-Description:   +gpu_mem_util=0.95 only. All else=baseline.
-Runs:          0/4 succeeded
-Mean tok/s:    FAILED

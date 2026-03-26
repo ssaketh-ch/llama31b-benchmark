@@ -1,140 +1,0 @@
-INFO 03-13 07:47:15 [__init__.py:235] Automatically detected platform cuda.
-INFO:Llama-8B-Dataset:Loading dataset...
-INFO:Llama-8B-Dataset:Finished loading dataset.
-INFO:Llama-8B-SUT:Loading model...
-INFO 03-13 07:47:23 [config.py:1604] Using max model len 131072
-INFO 03-13 07:47:23 [config.py:2434] Chunked prefill is enabled with max_num_batched_tokens=16384.
-INFO 03-13 07:47:23 [core.py:572] Waiting for init message from front-end.
-INFO 03-13 07:47:23 [core.py:71] Initializing a V1 LLM engine (v0.10.0) with config: model='/home/saketh-msc/inference/language/llama3.1-8b/model', speculative_config=None, tokenizer='/home/saketh-msc/inference/language/llama3.1-8b/model', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=131072, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=/home/saketh-msc/inference/language/llama3.1-8b/model, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
-/home/saketh-msc/miniconda3/lib/python3.10/site-packages/tvm_ffi/_optional_torch_c_dlpack.py:174: UserWarning: Failed to JIT torch c dlpack extension, EnvTensorAllocator will not be enabled.
-We recommend installing via `pip install torch-c-dlpack-ext`
-  warnings.warn(
-INFO 03-13 07:47:37 [parallel_state.py:1102] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
-INFO 03-13 07:47:37 [topk_topp_sampler.py:49] Using FlashInfer for top-p & top-k sampling.
-INFO 03-13 07:47:38 [gpu_model_runner.py:1843] Starting to load model /home/saketh-msc/inference/language/llama3.1-8b/model...
-INFO 03-13 07:47:38 [gpu_model_runner.py:1875] Loading model from scratch...
-INFO 03-13 07:47:38 [cuda.py:290] Using Flash Attention backend on V1 engine.
-Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
-Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:00<00:02,  1.20it/s]
-Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:01<00:01,  1.16it/s]
-Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:02<00:00,  1.17it/s]
-Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.64it/s]
-Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.43it/s]
-
-INFO 03-13 07:47:41 [default_loader.py:262] Loading weights took 2.80 seconds
-INFO 03-13 07:47:42 [gpu_model_runner.py:1892] Model loading took 14.9889 GiB and 2.980026 seconds
-INFO 03-13 07:47:47 [backends.py:530] Using cache directory: /home/saketh-msc/.cache/vllm/torch_compile_cache/ef34b9902a/rank_0_0/backbone for vLLM's torch.compile
-INFO 03-13 07:47:47 [backends.py:541] Dynamo bytecode transform time: 4.79 s
-INFO 03-13 07:47:51 [backends.py:161] Directly load the compiled graph(s) for dynamic shape from the cache, took 3.985 s
-INFO 03-13 07:47:51 [monitor.py:34] torch.compile takes 4.79 s in total
-INFO 03-13 07:47:53 [gpu_worker.py:255] Available KV cache memory: 45.84 GiB
-INFO 03-13 07:47:53 [kv_cache_utils.py:833] GPU KV cache size: 375,472 tokens
-INFO 03-13 07:47:53 [kv_cache_utils.py:837] Maximum concurrency for 131,072 tokens per request: 2.86x
-Capturing CUDA graph shapes:   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graph shapes:   3%|▎         | 2/67 [00:00<00:03, 19.66it/s]Capturing CUDA graph shapes:   7%|▋         | 5/67 [00:00<00:02, 22.54it/s]Capturing CUDA graph shapes:  12%|█▏        | 8/67 [00:00<00:02, 23.60it/s]Capturing CUDA graph shapes:  16%|█▋        | 11/67 [00:00<00:02, 23.49it/s]Capturing CUDA graph shapes:  21%|██        | 14/67 [00:00<00:02, 24.00it/s]Capturing CUDA graph shapes:  25%|██▌       | 17/67 [00:00<00:02, 24.35it/s]Capturing CUDA graph shapes:  30%|██▉       | 20/67 [00:00<00:01, 25.60it/s]Capturing CUDA graph shapes:  34%|███▍      | 23/67 [00:00<00:01, 26.30it/s]Capturing CUDA graph shapes:  39%|███▉      | 26/67 [00:01<00:01, 26.32it/s]Capturing CUDA graph shapes:  43%|████▎     | 29/67 [00:01<00:01, 26.37it/s]Capturing CUDA graph shapes:  48%|████▊     | 32/67 [00:01<00:01, 26.70it/s]Capturing CUDA graph shapes:  52%|█████▏    | 35/67 [00:01<00:01, 27.08it/s]Capturing CUDA graph shapes:  57%|█████▋    | 38/67 [00:01<00:01, 27.47it/s]Capturing CUDA graph shapes:  61%|██████    | 41/67 [00:01<00:00, 27.56it/s]Capturing CUDA graph shapes:  66%|██████▌   | 44/67 [00:01<00:00, 28.10it/s]Capturing CUDA graph shapes:  70%|███████   | 47/67 [00:01<00:00, 28.43it/s]Capturing CUDA graph shapes:  76%|███████▌  | 51/67 [00:01<00:00, 29.15it/s]Capturing CUDA graph shapes:  82%|████████▏ | 55/67 [00:02<00:00, 29.47it/s]Capturing CUDA graph shapes:  88%|████████▊ | 59/67 [00:02<00:00, 29.87it/s]Capturing CUDA graph shapes:  94%|█████████▍| 63/67 [00:02<00:00, 30.12it/s]Capturing CUDA graph shapes: 100%|██████████| 67/67 [00:02<00:00, 31.66it/s]Capturing CUDA graph shapes: 100%|██████████| 67/67 [00:02<00:00, 27.61it/s]
-INFO 03-13 07:47:56 [gpu_model_runner.py:2485] Graph capturing finished in 3 secs, took 0.68 GiB
-INFO 03-13 07:47:56 [core.py:193] init engine (profile, create kv cache, warmup model) took 14.73 seconds
-INFO:Llama-8B-SUT:Loaded model
-INFO:Llama-8B-MAIN:Starting Benchmark run
-INFO:Llama-8B-SUT:IssueQuery started with 26736 samples
-INFO:Llama-8B-SUT:IssueQuery done
-INFO:Llama-8B-SUT:Samples run: 1024
-INFO:Llama-8B-SUT:Samples run: 2048
-INFO:Llama-8B-SUT:Samples run: 3072
-INFO:Llama-8B-SUT:Samples run: 4096
-INFO:Llama-8B-SUT:Samples run: 5120
-INFO:Llama-8B-SUT:Samples run: 6144
-INFO:Llama-8B-SUT:Samples run: 7168
-INFO:Llama-8B-SUT:Samples run: 8192
-INFO:Llama-8B-SUT:Samples run: 9216
-INFO:Llama-8B-SUT:Samples run: 10240
-INFO:Llama-8B-SUT:Samples run: 11264
-INFO:Llama-8B-SUT:Samples run: 12288
-INFO:Llama-8B-SUT:Samples run: 13312
-INFO:Llama-8B-SUT:Samples run: 14336
-INFO:Llama-8B-SUT:Samples run: 15360
-INFO:Llama-8B-SUT:Samples run: 16384
-INFO:Llama-8B-SUT:Samples run: 17408
-INFO:Llama-8B-SUT:Samples run: 18432
-INFO:Llama-8B-SUT:Samples run: 19456
-INFO:Llama-8B-SUT:Samples run: 20480
-INFO:Llama-8B-SUT:Samples run: 21504
-INFO:Llama-8B-SUT:Samples run: 22528
-INFO:Llama-8B-SUT:Samples run: 23552
-INFO:Llama-8B-SUT:Samples run: 24576
-INFO:Llama-8B-SUT:Samples run: 25600
-INFO:Llama-8B-SUT:Samples run: 26624
-INFO:Llama-8B-SUT:Samples run: 26736
-================================================
-MLPerf Results Summary
-================================================
-SUT name : PySUT
-Scenario : Offline
-Mode     : PerformanceOnly
-Samples per second: 17.1539
-Tokens per second: 2195.7
-Result is : VALID
-  Min duration satisfied : Yes
-  Min queries satisfied : Yes
-  Early stopping satisfied: Yes
-
-================================================
-Additional Stats
-================================================
-Min latency (ns)                : 58650484706
-Max latency (ns)                : 1558595192399
-Mean latency (ns)               : 806724960974
-50.00 percentile latency (ns)   : 833251403118
-90.00 percentile latency (ns)   : 1432311956792
-95.00 percentile latency (ns)   : 1493730890487
-97.00 percentile latency (ns)   : 1551897185928
-99.00 percentile latency (ns)   : 1551898068940
-99.90 percentile latency (ns)   : 1558595148921
-
-
-================================================
-Test Parameters Used
-================================================
-samples_per_query : 14520
-target_qps : 22
-ttft_latency (ns): 2000000000
-tpot_latency (ns): 100000000
-max_async_queries : 1
-min_duration (ms): 600000
-max_duration (ms): 0
-min_query_count : 1
-max_query_count : 0
-qsl_rng_seed : 2465351861681999779
-sample_index_rng_seed : 14276810075590677512
-schedule_rng_seed : 3936089224930324775
-accuracy_log_rng_seed : 0
-accuracy_log_probability : 0
-accuracy_log_sampling_target : 0
-print_timestamps : 0
-performance_issue_unique : 0
-performance_issue_same : 0
-performance_issue_same_index : 0
-performance_sample_count : 13368
-accuracy_sample_count : 13368
-WARNING: sample_concatenate_permutation was set to true. 
-Generated samples per query might be different as the one in the setting.
-Check the generated_samples_per_query line in the detailed log for the real
-samples_per_query value
-
-1 warning encountered. See detailed log.
-
-No errors encountered during test.
-INFO:Llama-8B-MAIN:Run Completed!
-INFO:Llama-8B-MAIN:Looking for summary file at: /home/saketh-msc/inference/language/llama3.1-8b/isolation_results/2026-03-12_21-33-44/exp_03/run_3/mlperf_logs/mlperf_log_summary.txt
-INFO:Llama-8B-MAIN:Summary file size: 1915 bytes
-INFO:Llama-8B-MAIN:Parsed summary metrics: {'samples_per_second': 17.1539, 'tokens_per_second': 2195.7, 'is_valid': True, 'min_latency_ms': 58650.484706, 'max_latency_ms': 1558595.192399, 'mean_latency_ms': 806724.960974, 'p50_latency_ms': 833251.403118, 'p90_latency_ms': 1432311.956792, 'p95_latency_ms': 1493730.890487, 'p97_latency_ms': 1551897.185928, 'p99_latency_ms': 1551898.06894, 'p99.9_latency_ms': 1558595.148921}
-INFO:Llama-8B-MAIN:Successfully parsed metrics: {'samples_per_second': 17.1539, 'tokens_per_second': 2195.7, 'is_valid': True, 'min_latency_ms': 58650.484706, 'max_latency_ms': 1558595.192399, 'mean_latency_ms': 806724.960974, 'p50_latency_ms': 833251.403118, 'p90_latency_ms': 1432311.956792, 'p95_latency_ms': 1493730.890487, 'p97_latency_ms': 1551897.185928, 'p99_latency_ms': 1551898.06894, 'p99.9_latency_ms': 1558595.148921}
-Traceback (most recent call last):
-  File "/home/saketh-msc/inference/language/llama3.1-8b/main.py", line 293, in <module>
-    main()
-  File "/home/saketh-msc/inference/language/llama3.1-8b/main.py", line 275, in main
-    sut.log_final_results(summary_metrics)
-AttributeError: 'SUT' object has no attribute 'log_final_results'
-INFO:Llama-8B-MAIN:Parsed summary metrics: {'samples_per_second': 17.1539, 'tokens_per_second': 2195.7, 'is_valid': True, 'min_latency_ms': 58650.484706, 'max_latency_ms': 1558595.192399, 'mean_latency_ms': 806724.960974, 'p50_latency_ms': 833251.403118, 'p90_latency_ms': 1432311.956792, 'p95_latency_ms': 1493730.890487, 'p97_latency_ms': 1551897.185928, 'p99_latency_ms': 1551898.06894, 'p99.9_latency_ms': 1558595.148921}
-RUN_ID:33b458978f9e43c79ad8919555d70402
-🏃 View run exp_03_run3 at: https://pura-salable-teddy.ngrok-free.dev/#/experiments/2/runs/33b458978f9e43c79ad8919555d70402
-🧪 View experiment at: https://pura-salable-teddy.ngrok-free.dev/#/experiments/2

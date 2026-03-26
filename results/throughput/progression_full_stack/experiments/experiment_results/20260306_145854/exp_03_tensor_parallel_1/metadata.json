@@ -1,9 +1,0 @@
-{
-    "experiment": "exp_03_tensor_parallel_1",
-    "batch_size": 16,
-    "dtype": "bfloat16",
-    "description": "+TP=1 explicit: removes inter-GPU comm overhead on 8B model",
-    "exit_code": 0,
-    "duration_seconds": 1304,
-    "timestamp": "2026-03-06T10:43:24Z"
-}

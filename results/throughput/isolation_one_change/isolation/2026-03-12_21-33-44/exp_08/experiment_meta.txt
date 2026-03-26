@@ -1,7 +1,0 @@
-exp_id:       exp_08
-description:  +PYTORCH_CUDA_ALLOC_CONF=expandable_segments only. All else=baseline.
-batch_size:   16
-dtype:        bfloat16
-runs:         4
-timestamp:    2026-03-13T11:23:21Z
-sut_func:     sut_exp08

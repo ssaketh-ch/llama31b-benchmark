@@ -1,0 +1,14 @@
+{
+  "exp_id": "acc_batch_512",
+  "description": "batch_size=512. Non-determinism test.",
+  "rouge1_mean": 26.2134,
+  "rouge1_stdev": 0.0,
+  "rouge2_mean": 10.7615,
+  "rouge2_stdev": 0.0,
+  "rougeL_mean": 16.5851,
+  "rougeL_stdev": 0.0,
+  "rougeLsum_mean": 24.212,
+  "rougeLsum_stdev": 0.0,
+  "gen_len_mean": 7007972.0,
+  "gen_len_stdev": 0.0
+}

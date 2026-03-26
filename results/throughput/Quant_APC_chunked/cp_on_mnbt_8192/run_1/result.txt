@@ -1,0 +1,10 @@
+Experiment:   cp_on_mnbt_8192
+Run:          1/1
+Description:  CP ON + MNBT=8192 (docs-recommended min), BS=16
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   671.703
+Samples/sec:  5.24768
+Valid:        VALID
+Duration:     2577s
+Exit Code:    0

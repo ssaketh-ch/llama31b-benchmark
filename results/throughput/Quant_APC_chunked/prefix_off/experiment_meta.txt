@@ -1,0 +1,7 @@
+exp_id:       prefix_off
+description:  Prefix caching OFF (APC disabled), BS=16
+batch_size:   16
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-24T13:17:16Z
+vllm_version: 0.17.1

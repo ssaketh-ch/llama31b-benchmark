@@ -1,0 +1,8 @@
+exp_id:       acc_prefix_cache_on
+description:  enable_prefix_caching=True. Should equal baseline on unique articles.
+batch_size:   16
+dtype:        bfloat16
+mode:         accuracy
+runs:         1
+timestamp:    2026-03-21T17:42:20Z
+sut_func:     sut_exp15

@@ -1,0 +1,9 @@
+Experiment:       exp_B4_compile_lvl3
+Description:      +compilation_config=3 only [vLLM 0.10.0]. First batch ~2-5min compile. All other flags=baseline.
+Batch Size:       1024
+Dtype:            bfloat16
+Tokens/sec:       2842.23
+Samples/sec:      22.2049
+Valid:            VALID
+Duration:         1288s
+Exit Code:        0

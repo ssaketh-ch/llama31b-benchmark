@@ -1,0 +1,14 @@
+{
+  "exp_id": "combo_acc_fp8_bs1024",
+  "description": "COMBO: FP8 + batch_size=1024. FP8+large batch interaction.",
+  "rouge1_mean": 38.8375,
+  "rouge1_stdev": 0.0,
+  "rouge2_mean": 15.9657,
+  "rouge2_stdev": 0.0,
+  "rougeL_mean": 24.5357,
+  "rougeL_stdev": 0.0,
+  "rougeLsum_mean": 35.8918,
+  "rougeLsum_stdev": 0.0,
+  "gen_len_mean": 8182815.0,
+  "gen_len_stdev": 0.0
+}

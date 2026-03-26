@@ -1,0 +1,7 @@
+Experiment:  acc_dtype_fp16
+ROUGE SCORES:
+  rouge1      : mean=38.8381  stdev=0.0000
+  rouge2      : mean=15.9657  stdev=0.0000
+  rougeL      : mean=24.5365  stdev=0.0000
+  rougeLsum   : mean=35.8924  stdev=0.0000
+  gen_len     : mean=8182823.0000  stdev=0.0000

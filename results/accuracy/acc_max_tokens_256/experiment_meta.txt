@@ -1,0 +1,8 @@
+exp_id:       acc_max_tokens_256
+description:  max_tokens=256. Longer output budget.
+batch_size:   16
+dtype:        bfloat16
+mode:         accuracy
+runs:         1
+timestamp:    2026-03-21T13:35:32Z
+sut_func:     sut_exp05

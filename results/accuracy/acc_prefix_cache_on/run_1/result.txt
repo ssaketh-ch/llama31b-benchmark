@@ -1,0 +1,15 @@
+Experiment:       acc_prefix_cache_on
+Run:              1/1
+Description:      enable_prefix_caching=True. Should equal baseline on unique articles.
+Batch Size:       16
+Dtype:            bfloat16
+Mode:             accuracy
+rouge1:           38.8006
+rouge2:           15.9454
+rougeL:           24.5196
+rougeLsum:        35.8488
+gen_len:          8164533
+Tokens/sec:       N/A
+Valid:            N/A
+Duration:         1960s
+Exit Code:        0

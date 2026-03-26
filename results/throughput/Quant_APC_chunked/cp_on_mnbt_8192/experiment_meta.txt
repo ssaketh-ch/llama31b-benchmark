@@ -1,0 +1,7 @@
+exp_id:       cp_on_mnbt_8192
+description:  CP ON + MNBT=8192 (docs-recommended min), BS=16
+batch_size:   16
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-24T15:15:50Z
+vllm_version: 0.17.1

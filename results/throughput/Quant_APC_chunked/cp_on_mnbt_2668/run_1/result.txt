@@ -1,0 +1,10 @@
+Experiment:   cp_on_mnbt_2668
+Run:          1/1
+Description:  CP ON + MNBT=2668 (~V0 scheduling), BS=16
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   659.352
+Samples/sec:  5.15118
+Valid:        VALID
+Duration:     2638s
+Exit Code:    0

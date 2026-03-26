@@ -1,0 +1,7 @@
+exp_id:       cp_off
+description:  Chunked prefill OFF (MNBT=16384), BS=16
+batch_size:   16
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-24T13:48:02Z
+vllm_version: 0.17.1

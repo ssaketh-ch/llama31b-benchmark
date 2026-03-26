@@ -1,0 +1,14 @@
+{
+  "exp_id": "acc_ignore_eos_off",
+  "description": "ignore_eos=False explicit. Confirm EOS stopping.",
+  "rouge1_mean": 38.8001,
+  "rouge1_stdev": 0.0,
+  "rouge2_mean": 15.9452,
+  "rouge2_stdev": 0.0,
+  "rougeL_mean": 24.5197,
+  "rougeL_stdev": 0.0,
+  "rougeLsum_mean": 35.8486,
+  "rougeLsum_stdev": 0.0,
+  "gen_len_mean": 8164529.0,
+  "gen_len_stdev": 0.0
+}

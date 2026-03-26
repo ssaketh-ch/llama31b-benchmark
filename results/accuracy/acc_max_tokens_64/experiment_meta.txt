@@ -1,0 +1,8 @@
+exp_id:       acc_max_tokens_64
+description:  max_tokens=64. Shorter output — negative control.
+batch_size:   16
+dtype:        bfloat16
+mode:         accuracy
+runs:         1
+timestamp:    2026-03-21T14:27:04Z
+sut_func:     sut_exp06

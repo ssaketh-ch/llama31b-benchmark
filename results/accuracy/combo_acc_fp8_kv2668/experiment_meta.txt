@@ -1,0 +1,8 @@
+exp_id:       combo_acc_fp8_kv2668
+description:  COMBO: FP8 + max_model_len=2668. Throughput config accuracy check.
+batch_size:   16
+dtype:        float16
+mode:         accuracy
+runs:         1
+timestamp:    2026-03-21T19:54:43Z
+sut_func:     sut_exp_C1

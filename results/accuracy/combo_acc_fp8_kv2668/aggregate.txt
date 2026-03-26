@@ -1,0 +1,7 @@
+Experiment:  combo_acc_fp8_kv2668
+ROUGE SCORES:
+  rouge1      : mean=38.8376  stdev=0.0000
+  rouge2      : mean=15.9657  stdev=0.0000
+  rougeL      : mean=24.5358  stdev=0.0000
+  rougeLsum   : mean=35.8921  stdev=0.0000
+  gen_len     : mean=8182799.0000  stdev=0.0000

@@ -1,0 +1,10 @@
+Experiment:   baseline
+Run:          1/1
+Description:  Baseline: bf16, no quant, prefix ON, CP ON, MNBT=16384, BS=16
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   685.88
+Samples/sec:  5.35844
+Valid:        VALID
+Duration:     2558s
+Exit Code:    0

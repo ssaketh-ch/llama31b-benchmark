@@ -1,0 +1,8 @@
+exp_id:       acc_batch_1024
+description:  batch_size=1024. Strongest non-determinism test.
+batch_size:   1024
+dtype:        bfloat16
+mode:         accuracy
+runs:         1
+timestamp:    2026-03-21T15:06:31Z
+sut_func:     sut_exp08

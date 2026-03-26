@@ -1,0 +1,8 @@
+exp_id:       acc_kv_len_1000
+description:  max_model_len=1000. Input truncated to 872 tokens.
+batch_size:   16
+dtype:        bfloat16
+mode:         accuracy
+runs:         1
+timestamp:    2026-03-21T17:40:35Z
+sut_func:     sut_exp14

@@ -1,0 +1,7 @@
+Experiment:  acc_ignore_eos_off
+ROUGE SCORES:
+  rouge1      : mean=38.8001  stdev=0.0000
+  rouge2      : mean=15.9452  stdev=0.0000
+  rougeL      : mean=24.5197  stdev=0.0000
+  rougeLsum   : mean=35.8486  stdev=0.0000
+  gen_len     : mean=8164529.0000  stdev=0.0000

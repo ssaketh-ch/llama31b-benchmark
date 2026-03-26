@@ -1,0 +1,14 @@
+{
+  "exp_id": "acc_baseline",
+  "description": "Accuracy baseline: BF16 BS=16 all flags pinned. Reference ROUGE.",
+  "rouge1_mean": 38.8001,
+  "rouge1_stdev": 0.0,
+  "rouge2_mean": 15.9451,
+  "rouge2_stdev": 0.0,
+  "rougeL_mean": 24.5197,
+  "rougeL_stdev": 0.0,
+  "rougeLsum_mean": 35.8487,
+  "rougeLsum_stdev": 0.0,
+  "gen_len_mean": 8164523.0,
+  "gen_len_stdev": 0.0
+}

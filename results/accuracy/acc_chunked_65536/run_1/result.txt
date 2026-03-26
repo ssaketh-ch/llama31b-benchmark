@@ -1,0 +1,15 @@
+Experiment:       acc_chunked_65536
+Run:              1/1
+Description:      chunked_prefill=True + batched_tokens=65536. Correctness check.
+Batch Size:       16
+Dtype:            bfloat16
+Mode:             accuracy
+rouge1:           38.8
+rouge2:           15.9452
+rougeL:           24.5189
+rougeLsum:        35.8482
+gen_len:          8164560
+Tokens/sec:       N/A
+Valid:            N/A
+Duration:         1949s
+Exit Code:        0

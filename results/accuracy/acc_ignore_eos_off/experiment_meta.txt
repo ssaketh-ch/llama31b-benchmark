@@ -1,0 +1,8 @@
+exp_id:       acc_ignore_eos_off
+description:  ignore_eos=False explicit. Confirm EOS stopping.
+batch_size:   16
+dtype:        bfloat16
+mode:         accuracy
+runs:         1
+timestamp:    2026-03-21T13:02:30Z
+sut_func:     sut_exp04

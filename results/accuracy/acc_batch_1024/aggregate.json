@@ -1,0 +1,14 @@
+{
+  "exp_id": "acc_batch_1024",
+  "description": "batch_size=1024. Strongest non-determinism test.",
+  "rouge1_mean": 25.5702,
+  "rouge1_stdev": 0.0,
+  "rouge2_mean": 10.5305,
+  "rouge2_stdev": 0.0,
+  "rougeL_mean": 16.2307,
+  "rougeL_stdev": 0.0,
+  "rougeLsum_mean": 23.6161,
+  "rougeLsum_stdev": 0.0,
+  "gen_len_mean": 6859121.0,
+  "gen_len_stdev": 0.0
+}

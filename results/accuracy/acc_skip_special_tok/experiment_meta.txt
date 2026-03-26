@@ -1,0 +1,8 @@
+exp_id:       acc_skip_special_tok
+description:  skip_special_tokens=True explicit. Confirm no hidden special tokens.
+batch_size:   16
+dtype:        bfloat16
+mode:         accuracy
+runs:         1
+timestamp:    2026-03-21T12:31:27Z
+sut_func:     sut_exp03

@@ -1,0 +1,8 @@
+exp_id:       acc_sched_steps_4
+description:  num_scheduler_steps=4. Delayed EOS — any output change?
+batch_size:   16
+dtype:        bfloat16
+mode:         accuracy
+runs:         1
+timestamp:    2026-03-21T18:49:08Z
+sut_func:     sut_exp17

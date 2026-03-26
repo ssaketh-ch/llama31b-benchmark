@@ -1,0 +1,1 @@
+{"experiment": "exp_SPECIAL1", "batch_size": 1024, "dtype": "bfloat16", "description": "+enable_prefix_caching=True only. Reproducibility run. Validates exp_A5_prefix_cache_on result.", "exit_code": 0, "duration_seconds": 852, "timestamp": "2026-03-09T11:24:05Z"}

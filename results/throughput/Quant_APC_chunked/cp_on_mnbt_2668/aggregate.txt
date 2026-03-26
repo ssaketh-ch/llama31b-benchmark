@@ -1,0 +1,11 @@
+Experiment:    cp_on_mnbt_2668
+Description:   CP ON + MNBT=2668 (~V0 scheduling), BS=16
+Runs:          1/1 succeeded
+Mean tok/s:    659.35
+Stdev tok/s:   0.00
+CV%:           0.0%
+Min tok/s:     659.35
+Max tok/s:     659.35
+All values:    ['659.35']
+Valid rate:    1/1
+Speedup vs baseline: -3.87%

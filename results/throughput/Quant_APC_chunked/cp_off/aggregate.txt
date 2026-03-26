@@ -1,0 +1,11 @@
+Experiment:    cp_off
+Description:   Chunked prefill OFF (MNBT=16384), BS=16
+Runs:          1/1 succeeded
+Mean tok/s:    587.32
+Stdev tok/s:   0.00
+CV%:           0.0%
+Min tok/s:     587.32
+Max tok/s:     587.32
+All values:    ['587.32']
+Valid rate:    1/1
+Speedup vs baseline: +0.19%

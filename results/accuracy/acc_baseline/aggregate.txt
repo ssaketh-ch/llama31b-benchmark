@@ -1,0 +1,7 @@
+Experiment:  acc_baseline
+ROUGE SCORES:
+  rouge1      : mean=38.8001  stdev=0.0000
+  rouge2      : mean=15.9451  stdev=0.0000
+  rougeL      : mean=24.5197  stdev=0.0000
+  rougeLsum   : mean=35.8487  stdev=0.0000
+  gen_len     : mean=8164523.0000  stdev=0.0000

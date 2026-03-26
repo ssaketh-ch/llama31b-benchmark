@@ -1,0 +1,14 @@
+{
+  "exp_id": "acc_prefix_cache_on",
+  "description": "enable_prefix_caching=True. Should equal baseline on unique articles.",
+  "rouge1_mean": 38.8006,
+  "rouge1_stdev": 0.0,
+  "rouge2_mean": 15.9454,
+  "rouge2_stdev": 0.0,
+  "rougeL_mean": 24.5196,
+  "rougeL_stdev": 0.0,
+  "rougeLsum_mean": 35.8488,
+  "rougeLsum_stdev": 0.0,
+  "gen_len_mean": 8164533.0,
+  "gen_len_stdev": 0.0
+}

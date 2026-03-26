@@ -1,0 +1,8 @@
+exp_id:       acc_dtype_fp16
+description:  dtype=float16. Different rounding vs bfloat16.
+batch_size:   16
+dtype:        float16
+mode:         accuracy
+runs:         1
+timestamp:    2026-03-21T15:49:02Z
+sut_func:     sut_exp09

@@ -1,0 +1,8 @@
+exp_id:       acc_min_tokens_0
+description:  min_tokens=0. Allow empty outputs.
+batch_size:   16
+dtype:        bfloat16
+mode:         accuracy
+runs:         1
+timestamp:    2026-03-21T12:00:25Z
+sut_func:     sut_exp02

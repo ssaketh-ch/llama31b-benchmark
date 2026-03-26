@@ -1,0 +1,8 @@
+exp_id:       acc_temp_explicit
+description:  temperature=0.0 explicit. Confirm greedy decode.
+batch_size:   16
+dtype:        bfloat16
+mode:         accuracy
+runs:         1
+timestamp:    2026-03-21T11:29:24Z
+sut_func:     sut_exp01

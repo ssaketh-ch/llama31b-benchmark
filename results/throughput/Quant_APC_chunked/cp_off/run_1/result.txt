@@ -1,0 +1,10 @@
+Experiment:   cp_off
+Run:          1/1
+Description:  Chunked prefill OFF (MNBT=16384), BS=16
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   587.32
+Samples/sec:  4.594
+Valid:        VALID
+Duration:     2535s
+Exit Code:    0

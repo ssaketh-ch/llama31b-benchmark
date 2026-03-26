@@ -1,0 +1,131 @@
+[bench] python main.py --scenario Offline --model-path /home/saketh-msc/inference/language/llama3.1-8b/model --batch-size 16 --accuracy --dtype float16 --user-conf /home/saketh-msc/inference/language/llama3.1-8b/user.conf --total-sample-count 13368 --dataset-path /home/saketh-msc/inference/language/llama3.1-8b/dataset/llama3-1-8b-cnn-eval.uri/cnn_eval.json --output-log-dir /home/saketh-msc/inference/language/llama3.1-8b/accuracy_results/2026-03-21_21-19-02/acc_fp8_quant/run_1/mlperf_logs --tensor-parallel-size 1 --vllm
+INFO 03-21 22:00:03 [__init__.py:235] Automatically detected platform cuda.
+INFO:Llama-8B-Dataset:Loading dataset...
+INFO:Llama-8B-Dataset:Finished loading dataset.
+INFO:Llama-8B-SUT:Loading model...
+WARNING 03-21 22:00:14 [config.py:3443] Casting torch.bfloat16 to torch.float16.
+INFO 03-21 22:00:14 [config.py:1604] Using max model len 131072
+INFO 03-21 22:00:14 [config.py:2434] Chunked prefill is enabled with max_num_batched_tokens=131072.
+INFO 03-21 22:00:17 [core.py:572] Waiting for init message from front-end.
+INFO 03-21 22:00:17 [core.py:71] Initializing a V1 LLM engine (v0.10.0) with config: model='/home/saketh-msc/inference/language/llama3.1-8b/model', speculative_config=None, tokenizer='/home/saketh-msc/inference/language/llama3.1-8b/model', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.float16, max_seq_len=131072, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=fp8, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=/home/saketh-msc/inference/language/llama3.1-8b/model, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+/home/saketh-msc/miniconda3/lib/python3.10/site-packages/tvm_ffi/_optional_torch_c_dlpack.py:174: UserWarning: Failed to JIT torch c dlpack extension, EnvTensorAllocator will not be enabled.
+We recommend installing via `pip install torch-c-dlpack-ext`
+  warnings.warn(
+INFO 03-21 22:00:34 [parallel_state.py:1102] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+INFO 03-21 22:00:34 [topk_topp_sampler.py:49] Using FlashInfer for top-p & top-k sampling.
+INFO 03-21 22:00:34 [gpu_model_runner.py:1843] Starting to load model /home/saketh-msc/inference/language/llama3.1-8b/model...
+INFO 03-21 22:00:35 [gpu_model_runner.py:1875] Loading model from scratch...
+INFO 03-21 22:00:35 [cuda.py:290] Using Flash Attention backend on V1 engine.
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:03<00:09,  3.18s/it]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:06<00:06,  3.02s/it]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:08<00:02,  2.93s/it]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:09<00:00,  2.01s/it]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:09<00:00,  2.38s/it]
+
+INFO 03-21 22:00:45 [default_loader.py:262] Loading weights took 9.55 seconds
+INFO 03-21 22:00:46 [gpu_model_runner.py:1892] Model loading took 8.4889 GiB and 9.883054 seconds
+INFO 03-21 22:00:58 [backends.py:530] Using cache directory: /home/saketh-msc/.cache/vllm/torch_compile_cache/3e0c19e0d2/rank_0_0/backbone for vLLM's torch.compile
+INFO 03-21 22:00:58 [backends.py:541] Dynamo bytecode transform time: 12.19 s
+INFO 03-21 22:01:07 [backends.py:161] Directly load the compiled graph(s) for dynamic shape from the cache, took 8.605 s
+INFO 03-21 22:01:08 [monitor.py:34] torch.compile takes 12.19 s in total
+ERROR 03-21 22:01:09 [core.py:632] EngineCore failed to start.
+ERROR 03-21 22:01:09 [core.py:632] Traceback (most recent call last):
+ERROR 03-21 22:01:09 [core.py:632]   File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 623, in run_engine_core
+ERROR 03-21 22:01:09 [core.py:632]     engine_core = EngineCoreProc(*args, **kwargs)
+ERROR 03-21 22:01:09 [core.py:632]   File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 441, in __init__
+ERROR 03-21 22:01:09 [core.py:632]     super().__init__(vllm_config, executor_class, log_stats,
+ERROR 03-21 22:01:09 [core.py:632]   File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 86, in __init__
+ERROR 03-21 22:01:09 [core.py:632]     self._initialize_kv_caches(vllm_config)
+ERROR 03-21 22:01:09 [core.py:632]   File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 158, in _initialize_kv_caches
+ERROR 03-21 22:01:09 [core.py:632]     self.model_executor.determine_available_memory())
+ERROR 03-21 22:01:09 [core.py:632]   File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/executor/abstract.py", line 76, in determine_available_memory
+ERROR 03-21 22:01:09 [core.py:632]     output = self.collective_rpc("determine_available_memory")
+ERROR 03-21 22:01:09 [core.py:632]   File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/executor/uniproc_executor.py", line 58, in collective_rpc
+ERROR 03-21 22:01:09 [core.py:632]     answer = run_method(self.driver_worker, method, args, kwargs)
+ERROR 03-21 22:01:09 [core.py:632]   File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/utils/__init__.py", line 2985, in run_method
+ERROR 03-21 22:01:09 [core.py:632]     return func(*args, **kwargs)
+ERROR 03-21 22:01:09 [core.py:632]   File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+ERROR 03-21 22:01:09 [core.py:632]     return func(*args, **kwargs)
+ERROR 03-21 22:01:09 [core.py:632]   File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/worker/gpu_worker.py", line 233, in determine_available_memory
+ERROR 03-21 22:01:09 [core.py:632]     self.model_runner.profile_run()
+ERROR 03-21 22:01:09 [core.py:632]   File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/worker/gpu_model_runner.py", line 2416, in profile_run
+ERROR 03-21 22:01:09 [core.py:632]     = self._dummy_run(self.max_num_tokens, is_profile=True)
+ERROR 03-21 22:01:09 [core.py:632]   File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+ERROR 03-21 22:01:09 [core.py:632]     return func(*args, **kwargs)
+ERROR 03-21 22:01:09 [core.py:632]   File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/worker/gpu_model_runner.py", line 2199, in _dummy_run
+ERROR 03-21 22:01:09 [core.py:632]     return hidden_states, hidden_states[logit_indices]
+ERROR 03-21 22:01:09 [core.py:632] RuntimeError: CUDA error: an illegal memory access was encountered
+ERROR 03-21 22:01:09 [core.py:632] CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+ERROR 03-21 22:01:09 [core.py:632] For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+ERROR 03-21 22:01:09 [core.py:632] Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+ERROR 03-21 22:01:09 [core.py:632] 
+Process EngineCore_0:
+Traceback (most recent call last):
+  File "/home/saketh-msc/miniconda3/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/saketh-msc/miniconda3/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 636, in run_engine_core
+    raise e
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 623, in run_engine_core
+    engine_core = EngineCoreProc(*args, **kwargs)
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 441, in __init__
+    super().__init__(vllm_config, executor_class, log_stats,
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 86, in __init__
+    self._initialize_kv_caches(vllm_config)
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/engine/core.py", line 158, in _initialize_kv_caches
+    self.model_executor.determine_available_memory())
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/executor/abstract.py", line 76, in determine_available_memory
+    output = self.collective_rpc("determine_available_memory")
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/executor/uniproc_executor.py", line 58, in collective_rpc
+    answer = run_method(self.driver_worker, method, args, kwargs)
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/utils/__init__.py", line 2985, in run_method
+    return func(*args, **kwargs)
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/worker/gpu_worker.py", line 233, in determine_available_memory
+    self.model_runner.profile_run()
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/worker/gpu_model_runner.py", line 2416, in profile_run
+    = self._dummy_run(self.max_num_tokens, is_profile=True)
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/worker/gpu_model_runner.py", line 2199, in _dummy_run
+    return hidden_states, hidden_states[logit_indices]
+RuntimeError: CUDA error: an illegal memory access was encountered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/home/saketh-msc/inference/language/llama3.1-8b/main.py", line 293, in <module>
+    main()
+  File "/home/saketh-msc/inference/language/llama3.1-8b/main.py", line 234, in main
+    sut = sut_cls(
+  File "/home/saketh-msc/inference/language/llama3.1-8b/SUT_VLLM.py", line 28, in __init__
+    self.load_model()
+  File "/home/saketh-msc/inference/language/llama3.1-8b/SUT_VLLM.py", line 40, in load_model
+    self.model = LLM(
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/entrypoints/llm.py", line 273, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/engine/llm_engine.py", line 497, in from_engine_args
+    return engine_cls.from_vllm_config(
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/engine/llm_engine.py", line 126, in from_vllm_config
+    return cls(vllm_config=vllm_config,
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/engine/llm_engine.py", line 103, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 77, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 514, in __init__
+    super().__init__(
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/engine/core_client.py", line 408, in __init__
+    with launch_core_engines(vllm_config, executor_class,
+  File "/home/saketh-msc/miniconda3/lib/python3.10/contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/engine/utils.py", line 697, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/saketh-msc/miniconda3/lib/python3.10/site-packages/vllm/v1/engine/utils.py", line 750, in wait_for_engine_startup
+    raise RuntimeError("Engine core initialization failed. "
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+🏃 View run acc_fp8_quant_run1 at: https://pura-salable-teddy.ngrok-free.dev/#/experiments/10/runs/1b532e732e6545c9b08dca70411209b3
+🧪 View experiment at: https://pura-salable-teddy.ngrok-free.dev/#/experiments/10

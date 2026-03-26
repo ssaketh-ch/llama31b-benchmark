@@ -1,0 +1,23 @@
+exp_id,description,rouge1,rouge2,rougeL,rougeLsum,gen_len
+acc_chunked_65536,"chunked_prefill=True + batched_tokens=65536. Correctness check.",38.8000,15.9452,24.5189,35.8482,8164560.0
+acc_compile_cfg_3,"compilation_config=3. Fused kernels numerical diff check.",38.7993,15.9452,24.5194,35.8484,8164539.0
+acc_dtype_fp16,"dtype=float16. Different rounding vs bfloat16.",38.8381,15.9657,24.5365,35.8924,8182823.0
+acc_fp8_quant,"FP8 quantization (fp8 weights + float16 activations).",N/A,N/A,N/A,N/A,N/A
+acc_kv_len_1000,"max_model_len=1000. Input truncated to 872 tokens.",N/A,N/A,N/A,N/A,N/A
+acc_kv_len_1500,"max_model_len=1500. Input truncated to 1372 tokens.",36.5577,14.6037,23.2105,33.7790,8108270.0
+acc_kv_len_2668,"max_model_len=2668. Input truncated to 2540 tokens.",38.7976,15.9440,24.5183,35.8471,8164651.0
+acc_prefix_cache_on,"enable_prefix_caching=True. Should equal baseline on unique articles.",38.8006,15.9454,24.5196,35.8488,8164533.0
+acc_sched_steps_4,"num_scheduler_steps=4. Delayed EOS — any output change?",38.8007,15.9152,24.5227,35.8516,8162252.0
+acc_sort_by_len,"sort_by_input_length. Should be accuracy-neutral.",N/A,N/A,N/A,N/A,N/A
+combo_acc_fp8_bs1024,"COMBO: FP8 + batch_size=1024. FP8+large batch interaction.",38.8375,15.9657,24.5357,35.8918,8182815.0
+combo_acc_fp8_kv2668,"COMBO: FP8 + max_model_len=2668. Throughput config accuracy check.",38.8376,15.9657,24.5358,35.8921,8182799.0
+combo_acc_full_optimal,"COMBO: Full optimal (FP8+BS1024+len2668+sort). Final accuracy answer.",N/A,N/A,N/A,N/A,N/A
+acc_baseline,"Accuracy baseline: BF16 BS=16 all flags pinned. Reference ROUGE.",38.8001,15.9451,24.5197,35.8487,8164523.0
+acc_batch_1024,"batch_size=1024. Strongest non-determinism test.",25.5702,10.5305,16.2307,23.6161,6859121.0
+acc_batch_512,"batch_size=512. Non-determinism test.",26.2134,10.7615,16.5851,24.212,7007972.0
+acc_ignore_eos_off,"ignore_eos=False explicit. Confirm EOS stopping.",38.8001,15.9452,24.5197,35.8486,8164529.0
+acc_max_tokens_256,"max_tokens=256. Longer output budget.",27.5814,11.676,17.539,25.9085,16624600.0
+acc_max_tokens_64,"max_tokens=64. Shorter output — negative control.",41.6827,16.729,26.7254,37.826,3990098.0
+acc_min_tokens_0,"min_tokens=0. Allow empty outputs.",38.8001,15.9451,24.5197,35.8486,8164527.0
+acc_skip_special_tok,"skip_special_tokens=True explicit. Confirm no hidden special tokens.",38.8,15.9451,24.5197,35.8486,8164522.0
+acc_temp_explicit,"temperature=0.0 explicit. Confirm greedy decode.",38.8001,15.9451,24.5197,35.8486,8164527.0

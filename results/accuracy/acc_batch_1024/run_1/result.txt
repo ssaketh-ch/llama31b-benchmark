@@ -1,0 +1,15 @@
+Experiment:       acc_batch_1024
+Run:              1/1
+Description:      batch_size=1024. Strongest non-determinism test.
+Batch Size:       1024
+Dtype:            bfloat16
+Mode:             accuracy
+rouge1:           25.5702
+rouge2:           10.5305
+rougeL:           16.2307
+rougeLsum:        23.6161
+gen_len:          6859121
+Tokens/sec:       N/A
+Valid:            N/A
+Duration:         1116s
+Exit Code:        0

@@ -1,0 +1,11 @@
+Experiment:    prefix_off
+Description:   Prefix caching OFF (APC disabled), BS=16
+Runs:          1/1 succeeded
+Mean tok/s:    975.21
+Stdev tok/s:   0.00
+CV%:           0.0%
+Min tok/s:     975.21
+Max tok/s:     975.21
+All values:    ['975.21']
+Valid rate:    1/1
+Speedup vs baseline: +42.18%

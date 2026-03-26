@@ -1,0 +1,14 @@
+{
+  "exp_id": "combo_acc_fp8_kv2668",
+  "description": "COMBO: FP8 + max_model_len=2668. Throughput config accuracy check.",
+  "rouge1_mean": 38.8376,
+  "rouge1_stdev": 0.0,
+  "rouge2_mean": 15.9657,
+  "rouge2_stdev": 0.0,
+  "rougeL_mean": 24.5358,
+  "rougeL_stdev": 0.0,
+  "rougeLsum_mean": 35.8921,
+  "rougeLsum_stdev": 0.0,
+  "gen_len_mean": 8182799.0,
+  "gen_len_stdev": 0.0
+}

@@ -1,0 +1,15 @@
+Experiment:       acc_fp8_quant
+Run:              1/1
+Description:      FP8 quantization (fp8 weights + float16 activations).
+Batch Size:       16
+Dtype:            float16
+Mode:             accuracy
+rouge1:           N/A
+rouge2:           N/A
+rougeL:           N/A
+rougeLsum:        N/A
+gen_len:          N/A
+Tokens/sec:       N/A
+Valid:            N/A
+Duration:         231s
+Exit Code:        0

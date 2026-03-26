@@ -1,0 +1,15 @@
+Experiment:       acc_sort_by_len
+Run:              1/1
+Description:      sort_by_input_length. Should be accuracy-neutral.
+Batch Size:       16
+Dtype:            bfloat16
+Mode:             accuracy
+rouge1:           N/A
+rouge2:           N/A
+rougeL:           N/A
+rougeLsum:        N/A
+gen_len:          N/A
+Tokens/sec:       N/A
+Valid:            N/A
+Duration:         38s
+Exit Code:        0

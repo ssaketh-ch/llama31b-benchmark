@@ -1,0 +1,8 @@
+exp_id:       acc_baseline
+description:  Accuracy baseline: BF16 BS=16 all flags pinned. Reference ROUGE.
+batch_size:   16
+dtype:        bfloat16
+mode:         accuracy
+runs:         1
+timestamp:    2026-03-21T10:58:18Z
+sut_func:     sut_exp00

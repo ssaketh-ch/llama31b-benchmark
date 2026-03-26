@@ -1,0 +1,10 @@
+Experiment:    baseline
+Description:   Baseline: bf16, no quant, prefix ON, CP ON, MNBT=16384, BS=16
+Runs:          1/1 succeeded
+Mean tok/s:    685.88
+Stdev tok/s:   0.00
+CV%:           0.0%
+Min tok/s:     685.88
+Max tok/s:     685.88
+All values:    ['685.88']
+Valid rate:    1/1

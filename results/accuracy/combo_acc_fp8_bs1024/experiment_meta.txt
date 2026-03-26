@@ -1,0 +1,8 @@
+exp_id:       combo_acc_fp8_bs1024
+description:  COMBO: FP8 + batch_size=1024. FP8+large batch interaction.
+batch_size:   1024
+dtype:        float16
+mode:         accuracy
+runs:         1
+timestamp:    2026-03-21T20:28:45Z
+sut_func:     sut_exp_C2

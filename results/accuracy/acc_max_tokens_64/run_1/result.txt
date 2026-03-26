@@ -1,0 +1,15 @@
+Experiment:       acc_max_tokens_64
+Run:              1/1
+Description:      max_tokens=64. Shorter output — negative control.
+Batch Size:       16
+Dtype:            bfloat16
+Mode:             accuracy
+rouge1:           41.6827
+rouge2:           16.729
+rougeL:           26.7254
+rougeLsum:        37.826
+gen_len:          3990098
+Tokens/sec:       N/A
+Valid:            N/A
+Duration:         1212s
+Exit Code:        0

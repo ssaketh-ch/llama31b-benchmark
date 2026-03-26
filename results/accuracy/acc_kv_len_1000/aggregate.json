@@ -1,0 +1,9 @@
+{
+  "exp_id": "acc_kv_len_1000",
+  "description": "max_model_len=1000. Input truncated to 872 tokens.",
+  "rouge1_mean": null,
+  "rouge2_mean": null,
+  "rougeL_mean": null,
+  "rougeLsum_mean": null,
+  "gen_len_mean": null
+}

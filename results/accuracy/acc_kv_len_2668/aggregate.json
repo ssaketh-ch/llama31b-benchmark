@@ -1,0 +1,14 @@
+{
+  "exp_id": "acc_kv_len_2668",
+  "description": "max_model_len=2668. Input truncated to 2540 tokens.",
+  "rouge1_mean": 38.7976,
+  "rouge1_stdev": 0.0,
+  "rouge2_mean": 15.944,
+  "rouge2_stdev": 0.0,
+  "rougeL_mean": 24.5183,
+  "rougeL_stdev": 0.0,
+  "rougeLsum_mean": 35.8471,
+  "rougeLsum_stdev": 0.0,
+  "gen_len_mean": 8164651.0,
+  "gen_len_stdev": 0.0
+}

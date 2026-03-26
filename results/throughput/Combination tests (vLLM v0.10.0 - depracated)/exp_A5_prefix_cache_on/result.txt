@@ -1,0 +1,9 @@
+Experiment:       exp_A5_prefix_cache_on
+Description:      +enable_prefix_caching=True only. Expect flat or regression on CNN DailyMail.
+Batch Size:       1024
+Dtype:            bfloat16
+Tokens/sec:       4475.8
+Samples/sec:      34.9672
+Valid:            VALID
+Duration:         849s
+Exit Code:        0

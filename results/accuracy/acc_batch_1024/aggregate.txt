@@ -1,0 +1,7 @@
+Experiment:  acc_batch_1024
+ROUGE SCORES:
+  rouge1      : mean=25.5702  stdev=0.0000
+  rouge2      : mean=10.5305  stdev=0.0000
+  rougeL      : mean=16.2307  stdev=0.0000
+  rougeLsum   : mean=23.6161  stdev=0.0000
+  gen_len     : mean=6859121.0000  stdev=0.0000

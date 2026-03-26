@@ -1,0 +1,15 @@
+Experiment:       acc_batch_512
+Run:              1/1
+Description:      batch_size=512. Non-determinism test.
+Batch Size:       512
+Dtype:            bfloat16
+Mode:             accuracy
+rouge1:           26.2134
+rouge2:           10.7615
+rougeL:           16.5851
+rougeLsum:        24.212
+gen_len:          7007972
+Tokens/sec:       N/A
+Valid:            N/A
+Duration:         1058s
+Exit Code:        0

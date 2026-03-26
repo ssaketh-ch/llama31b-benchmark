@@ -1,0 +1,7 @@
+Experiment:  acc_kv_len_1000
+ROUGE SCORES:
+  rouge1      : N/A
+  rouge2      : N/A
+  rougeL      : N/A
+  rougeLsum   : N/A
+  gen_len     : N/A

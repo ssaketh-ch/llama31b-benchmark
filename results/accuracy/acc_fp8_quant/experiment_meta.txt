@@ -1,0 +1,8 @@
+exp_id:       acc_fp8_quant
+description:  FP8 quantization (fp8 weights + float16 activations).
+batch_size:   16
+dtype:        float16
+mode:         accuracy
+runs:         1
+timestamp:    2026-03-21T16:27:32Z
+sut_func:     sut_exp10

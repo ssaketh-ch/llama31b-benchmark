@@ -1,0 +1,14 @@
+{
+  "exp_id": "acc_compile_cfg_3",
+  "description": "compilation_config=3. Fused kernels numerical diff check.",
+  "rouge1_mean": 38.7993,
+  "rouge1_stdev": 0.0,
+  "rouge2_mean": 15.9452,
+  "rouge2_stdev": 0.0,
+  "rougeL_mean": 24.5194,
+  "rougeL_stdev": 0.0,
+  "rougeLsum_mean": 35.8484,
+  "rougeLsum_stdev": 0.0,
+  "gen_len_mean": 8164539.0,
+  "gen_len_stdev": 0.0
+}

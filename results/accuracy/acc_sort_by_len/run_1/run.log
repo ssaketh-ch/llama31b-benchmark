@@ -1,0 +1,11 @@
+[bench] python main.py --scenario Offline --model-path /home/saketh-msc/inference/language/llama3.1-8b/model --batch-size 16 --accuracy --dtype bfloat16 --user-conf /home/saketh-msc/inference/language/llama3.1-8b/user.conf --total-sample-count 13368 --dataset-path /home/saketh-msc/inference/language/llama3.1-8b/dataset/llama3-1-8b-cnn-eval.uri/cnn_eval.json --output-log-dir /home/saketh-msc/inference/language/llama3.1-8b/accuracy_results/2026-03-21_21-19-02/acc_sort_by_len/run_1/mlperf_logs --tensor-parallel-size 1 --vllm
+Traceback (most recent call last):
+  File "/home/saketh-msc/inference/language/llama3.1-8b/main.py", line 293, in <module>
+    main()
+  File "/home/saketh-msc/inference/language/llama3.1-8b/main.py", line 225, in main
+    from SUT_VLLM import SUT, SUTServer
+  File "/home/saketh-msc/inference/language/llama3.1-8b/SUT_VLLM.py", line 89
+    query_samples = sorted(query_samples,
+IndentationError: unexpected indent
+🏃 View run acc_sort_by_len_run1 at: https://pura-salable-teddy.ngrok-free.dev/#/experiments/10/runs/471f4f7456b24140abd8df1ef625f0c4
+🧪 View experiment at: https://pura-salable-teddy.ngrok-free.dev/#/experiments/10

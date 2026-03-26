@@ -1,0 +1,10 @@
+Experiment:   quant_fp8_weights
+Run:          1/1
+Description:  Quant: fp8 W8A8 weights (float16 compute), BS=16
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   1380.12
+Samples/sec:  10.7822
+Valid:        VALID
+Duration:     1321s
+Exit Code:    0

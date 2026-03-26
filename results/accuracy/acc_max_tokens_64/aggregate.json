@@ -1,0 +1,14 @@
+{
+  "exp_id": "acc_max_tokens_64",
+  "description": "max_tokens=64. Shorter output \u2014 negative control.",
+  "rouge1_mean": 41.6827,
+  "rouge1_stdev": 0.0,
+  "rouge2_mean": 16.729,
+  "rouge2_stdev": 0.0,
+  "rougeL_mean": 26.7254,
+  "rougeL_stdev": 0.0,
+  "rougeLsum_mean": 37.826,
+  "rougeLsum_stdev": 0.0,
+  "gen_len_mean": 3990098.0,
+  "gen_len_stdev": 0.0
+}

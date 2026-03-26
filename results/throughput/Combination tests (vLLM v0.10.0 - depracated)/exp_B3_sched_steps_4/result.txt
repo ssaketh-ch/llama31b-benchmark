@@ -1,0 +1,9 @@
+Experiment:       exp_B3_sched_steps_4
+Description:      +num_scheduler_steps=4 only [vLLM 0.10.0]. All other flags=baseline.
+Batch Size:       1024
+Dtype:            bfloat16
+Tokens/sec:       2540.35
+Samples/sec:      19.8465
+Valid:            VALID
+Duration:         1439s
+Exit Code:        0

@@ -1,0 +1,7 @@
+Experiment:  acc_kv_len_2668
+ROUGE SCORES:
+  rouge1      : mean=38.7976  stdev=0.0000
+  rouge2      : mean=15.9440  stdev=0.0000
+  rougeL      : mean=24.5183  stdev=0.0000
+  rougeLsum   : mean=35.8471  stdev=0.0000
+  gen_len     : mean=8164651.0000  stdev=0.0000

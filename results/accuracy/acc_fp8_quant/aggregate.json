@@ -1,0 +1,9 @@
+{
+  "exp_id": "acc_fp8_quant",
+  "description": "FP8 quantization (fp8 weights + float16 activations).",
+  "rouge1_mean": null,
+  "rouge2_mean": null,
+  "rougeL_mean": null,
+  "rougeLsum_mean": null,
+  "gen_len_mean": null
+}

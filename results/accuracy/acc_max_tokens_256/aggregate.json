@@ -1,0 +1,14 @@
+{
+  "exp_id": "acc_max_tokens_256",
+  "description": "max_tokens=256. Longer output budget.",
+  "rouge1_mean": 27.5814,
+  "rouge1_stdev": 0.0,
+  "rouge2_mean": 11.676,
+  "rouge2_stdev": 0.0,
+  "rougeL_mean": 17.539,
+  "rougeL_stdev": 0.0,
+  "rougeLsum_mean": 25.9085,
+  "rougeLsum_stdev": 0.0,
+  "gen_len_mean": 16624600.0,
+  "gen_len_stdev": 0.0
+}

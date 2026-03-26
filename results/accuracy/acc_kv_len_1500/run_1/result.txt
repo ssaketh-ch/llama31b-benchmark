@@ -1,0 +1,15 @@
+Experiment:       acc_kv_len_1500
+Run:              1/1
+Description:      max_model_len=1500. Input truncated to 1372 tokens.
+Batch Size:       16
+Dtype:            bfloat16
+Mode:             accuracy
+rouge1:           36.5577
+rouge2:           14.6037
+rougeL:           23.2105
+rougeLsum:        33.779
+gen_len:          8108270
+Tokens/sec:       N/A
+Valid:            N/A
+Duration:         1947s
+Exit Code:        0

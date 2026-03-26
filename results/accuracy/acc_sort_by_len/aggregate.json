@@ -1,0 +1,9 @@
+{
+  "exp_id": "acc_sort_by_len",
+  "description": "sort_by_input_length. Should be accuracy-neutral.",
+  "rouge1_mean": null,
+  "rouge2_mean": null,
+  "rougeL_mean": null,
+  "rougeLsum_mean": null,
+  "gen_len_mean": null
+}

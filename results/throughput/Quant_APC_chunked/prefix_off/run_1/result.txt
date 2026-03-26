@@ -1,0 +1,10 @@
+Experiment:   prefix_off
+Run:          1/1
+Description:  Prefix caching OFF (APC disabled), BS=16
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   975.205
+Samples/sec:  7.61879
+Valid:        VALID
+Duration:     1799s
+Exit Code:    0

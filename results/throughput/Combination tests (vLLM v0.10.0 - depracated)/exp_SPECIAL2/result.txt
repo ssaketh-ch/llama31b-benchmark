@@ -1,0 +1,9 @@
+Experiment:       exp_SPECIAL2
+Description:      +enable_prefix_caching=True only.
+Batch Size:       1024
+Dtype:            bfloat16
+Tokens/sec:       4493.4
+Samples/sec:      35.1044
+Valid:            VALID
+Duration:         847s
+Exit Code:        0

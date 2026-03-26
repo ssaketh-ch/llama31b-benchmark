@@ -1,0 +1,16 @@
+=== STDOUT ===
+Results
+
+{'rouge1': '38.8375', 'rouge2': '15.9657', 'rougeL': '24.5357', 'rougeLsum': '35.8918', 'gen_len': np.int64(8182815), 'gen_num': 13368}
+
+=== STDERR ===
+[nltk_data] Downloading package punkt to /home/saketh-msc/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package punkt_tab to /home/saketh-
+[nltk_data]     msc/nltk_data...
+[nltk_data]   Package punkt_tab is already up-to-date!
+INFO:Llama-8B-Dataset:Loading dataset...
+INFO:Llama-8B-Dataset:Finished loading dataset.
+INFO:absl:Using default tokenizer.
+
+=== EXIT: 0 ===

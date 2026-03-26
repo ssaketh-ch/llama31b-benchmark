@@ -1,0 +1,7 @@
+Experiment:  acc_max_tokens_64
+ROUGE SCORES:
+  rouge1      : mean=41.6827  stdev=0.0000
+  rouge2      : mean=16.7290  stdev=0.0000
+  rougeL      : mean=26.7254  stdev=0.0000
+  rougeLsum   : mean=37.8260  stdev=0.0000
+  gen_len     : mean=3990098.0000  stdev=0.0000

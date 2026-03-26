@@ -1,0 +1,15 @@
+Experiment:       acc_max_tokens_256
+Run:              1/1
+Description:      max_tokens=256. Longer output budget.
+Batch Size:       16
+Dtype:            bfloat16
+Mode:             accuracy
+rouge1:           27.5814
+rouge2:           11.676
+rougeL:           17.539
+rougeLsum:        25.9085
+gen_len:          16624600
+Tokens/sec:       N/A
+Valid:            N/A
+Duration:         3043s
+Exit Code:        0

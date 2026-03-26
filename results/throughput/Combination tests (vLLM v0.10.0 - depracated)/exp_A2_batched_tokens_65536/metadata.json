@@ -1,0 +1,1 @@
+{"experiment":"exp_A2_batched_tokens_65536","batch_size":1024,"dtype":"bfloat16","description":"+max_num_batched_tokens=65536 only. chunked_prefill=False. All other flags=baseline.","exit_code":0,"duration_seconds":1291,"timestamp":"2026-03-09T09:03:55Z"}

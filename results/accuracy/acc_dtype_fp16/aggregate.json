@@ -1,0 +1,14 @@
+{
+  "exp_id": "acc_dtype_fp16",
+  "description": "dtype=float16. Different rounding vs bfloat16.",
+  "rouge1_mean": 38.8381,
+  "rouge1_stdev": 0.0,
+  "rouge2_mean": 15.9657,
+  "rouge2_stdev": 0.0,
+  "rougeL_mean": 24.5365,
+  "rougeL_stdev": 0.0,
+  "rougeLsum_mean": 35.8924,
+  "rougeLsum_stdev": 0.0,
+  "gen_len_mean": 8182823.0,
+  "gen_len_stdev": 0.0
+}

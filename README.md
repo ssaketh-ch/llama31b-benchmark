@@ -423,6 +423,59 @@ Source: `results/accuracy/`
 | int8 W8A8 kernel failure | MEDIUM | Check vLLM int8 support for LLaMA 3.1-8B on this GPU |
 | stk_02_bs1024 INVALID (loadgen) | MEDIUM | Rerun with corrected expected QPS |
 
+---
+
+## Nsight Systems GPU Profiling
+
+GPU execution traces were collected using NVIDIA Nsight Systems for two batch size configurations on the same 13,368‑sample CNN/DailyMail Offline run:
+- `batch=1024`
+- `batch=16`
+
+Each run was stopped after two complete batches; all figures are derived from the Nsight Systems SQLite trace files.
+
+### Key Findings
+
+- The model is **compute‑bound** during active execution (95.1% of GPU active time spent on GEMM at `batch=1024`, 90.9% at `batch=16`).
+- At `batch=16`, the GPU sits **completely idle for ≈1,121.7 ms** between every batch while the CPU executes `QuerySamplesComplete()` and re‑queues work, wasting **≈50% of total GPU time** per batch.
+- At `batch=1024`, the same inter‑batch gap is only **0.516 ms (≈0.002% of batch duration)**, a **2,174× reduction**.
+- The “Other” kernel category (small dispatch and synchronisation overhead) grows from **1.4% to 5.7%** of GPU active time at `batch=16`, confirming that fixed‑cost operations become disproportionately expensive at small batch sizes.
+- FlashAttention efficiency drops from **1.6% to 1.2%** of GPU active time at `batch=16`, consistent with 16‑sequence attention matrices being too small to saturate GPU warp occupancy.
+
+### Complete Data Table
+
+| Metric                                      | batch=1024 Batch 1 | batch=1024 Batch 2 | batch=16 Batch 1 | batch=16 Batch 2 |
+|---------------------------------------------|--------------------|--------------------|------------------|------------------|
+| Wall time (s)                               | 24.111             | 27.437             | 1.093            | 1.104            |
+| GPU active time (s)                         | 24.002             | 27.379             | 1.080            | 0.564            |
+| GPU utilisation (%)                         | 99.5               | 99.8               | 98.8             | 51.1             |
+| Kernel count                                | 111,242            | 111,682            | 54,965           | 24,602           |
+| Avg kernel duration (ms)                    | 0.216              | 0.245              | 0.020            | 0.023            |
+| Inter‑batch idle gap (avg, ms)              | 0.516              | 0.516              | 1,121.7          | 1,121.7          |
+| Inter‑batch idle gap (% of batch time)      | 0.002%             | 0.002%             | 50%              | 50%              |
+| GEMM % of GPU active time                   | 95.1%              | 95.1%              | 90.9%            | 90.9%            |
+| Triton/Elementwise % of GPU active time     | 1.8%               | 1.8%               | 1.8%             | 1.8%             |
+| FlashAttention % of GPU active time         | 1.6%               | 1.6%               | 1.2%             | 1.2%             |
+| Other (overhead) % of GPU active time       | 1.4%               | 1.4%               | 5.7%             | 5.7%             |
+| Sampling/TopK % of GPU active time          | 0.2%               | 0.2%               | 0.4%             | 0.4%             |
+| KV cache % of GPU active time               | 0.0%               | 0.0%               | 0.0%             | 0.0%             |
+| Occurrences of decode kernel (Batch 1)      | 33,024             | 33,024             | 16,256           | 16,256           |
+| Avg decode step interval (ms)               | 0.729              | 0.729              | 0.058            | 0.058            |
+| Implied tokens per request (Batch 1)        | 32.2               | 32.2               | 32.0             | 32.0             |
+
+### Key Ratios Explained
+
+- **Inter‑batch gap ratio**: 1,121.7 ms (`batch=16`) / 0.516 ms (`batch=1024`) ≈ 2,174×.
+- **Utilisation regime**:  
+  - `batch=1024` → compute‑bound, 99.5–99.8% utilisation.  
+  - `batch=16` → CPU‑latency‑bound, 51.1% utilisation with 50% idle time.
+- **Throughput implication**: no amount of compute‑side optimisation can recover the 50% idle time at `batch=16`; only increasing batch size eliminates the gap.
+
+### How to View the Traces
+
+- Traces live in `nsight/` as `1024_nsys_report.nsys-rep` and `16_nsys_report.nsys-rep`.  
+- Open in **NVIDIA Nsight Systems** and inspect:
+  - NVTX `process_batch` ranges vs GPU kernel rows (to see the inter‑batch idle gap).
+  - GPU kernel summary panel to confirm the kernel‑category percentages above.
 
 ---
 

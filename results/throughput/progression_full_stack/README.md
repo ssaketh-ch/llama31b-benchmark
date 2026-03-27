@@ -4,7 +4,7 @@ Stacked tuning sessions that build from the production baseline toward a best-pe
 Each stack step adds one change on top of all previous ones. See `experiments/` for
 dated runs and the consolidated report.
 
-## Stack Results (2026-03-25)
+## Stack Results 
 
 All speedups are relative to **stk_00_baseline** (1089.04 tok/s).
 

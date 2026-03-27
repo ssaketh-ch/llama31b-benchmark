@@ -51,13 +51,13 @@ full accuracy validation suite, together answering: *which optimizations are saf
 
 ### MLPerf Pipeline
 
-![MLPerf benchmark pipeline](results/figures/fig_mlperf_pipeline.jpg)
+![MLPerf benchmark pipeline](figures/fig_mlperf_pipeline.jpg)
 
 *The MLPerf benchmark pipeline: Model and dataset are fed into the Benchmark harness, which communicates with LoadGen to drive queries to the Backend. The Post Processor converts raw outputs back to LoadGen, which writes final logs. All throughput and accuracy numbers in this report are produced by this pipeline.*
 
 ### CNN/DailyMail Input Length Distribution
 
-![CNN/DailyMail input length distribution](results/figures/cnndm_input_length_dist.png)
+![CNN/DailyMail input length distribution]( figures/cnndm_input_length_dist.png)
 
 *Distribution of input token lengths across the CNN/DailyMail summarization dataset. The distribution peaks around 500–700 tokens and has a long right tail reaching ~2600 tokens. This motivates setting `max_model_len=2668` — the minimum value that avoids truncation — rather than a larger default.*
 
@@ -93,19 +93,19 @@ Baseline: BF16, BS=16, stock vLLM V1 defaults (exp_00 = 1082.82 tok/s).
 
 #### Throughput Delta vs Baseline (Bar Chart)
 
-![Throughput delta vs baseline — vLLM v0.17.1](results/figures/chart1_throughput_delta.png)
+![Throughput delta vs baseline — vLLM v0.17.1]( figures/chart1_throughput_delta.png)
 
 *Horizontal bar chart showing the percentage throughput change of each single-flag experiment relative to the V1 production baseline (1083 tok/s). Bars to the left are regressions; bars to the right are improvements. `compilation_config=O0` is the worst regression at −20.8%; FP8 weight quantization is the best non-batch gain at +34.5%. Batch size experiments are shown separately in the next chart.*
 
 #### Throughput Delta — Full Ranking (Lollipop Chart)
 
-![Throughput delta vs production baseline — full ranking](results/figures/chart4_throughput_delta.png)
+![Throughput delta vs production baseline — full ranking]( figures/chart4_throughput_delta.png)
 
 *Full lollipop chart ranking all isolation experiments by throughput change. BS=2048 and BS=1024 dominate at +119.7% and +112.7% respectively, dwarfing every other flag. FP8 weights (+34.5%) and FP8 W+KV (+18.0%) form the next tier. Regressions are shown in red; the worst is `No Compile (O0)` at −20.8%.*
 
 #### Quantization Strategies and Batch Size Scaling
 
-![Quantisation and batch size impact on throughput](results/figures/chart2_quant_and_batch.png)
+![Quantisation and batch size impact on throughput]( figures/chart2_quant_and_batch.png)
 
 *Left panel: Comparison of quantization strategies with approximate GPU HBM footprints shown inside each bar. FP8 weights only (1456 tok/s, +34.5%) is the winner; adding FP8 KV cache on top drops performance to 1278 tok/s (+18.0%), confirming that KV quantization overhead partially cancels the weight quantization benefit. Right panel: Batch size scaling — BS=1024 reaches 2303 tok/s (+113%) and BS=2048 reaches 2379 tok/s (+120%) over the BS=16 baseline.*
 
@@ -135,19 +135,19 @@ Baseline: BF16, BS=16, CP ON, MNBT=16384, APC ON (685.88 tok/s).
 
 #### Quantization Schemes — Throughput and Memory
 
-![Throughput by quantisation scheme and GPU memory footprint](results/figures/chart_quantisation.png)
+![Throughput by quantisation scheme and GPU memory footprint]( figures/chart_quantisation.png)
 
 *Left panel: Throughput by quantization scheme. BF16 baseline = 686 tok/s. INT8 (W8A8) failed with OOM. FP8 (W8A8) reaches 1380 tok/s (+101.2%). Right panel: GPU HBM breakdown. BF16 uses ~19.7 GB total (16.1 GB weights + 2.1 GB KV cache). FP8 reduces to ~11.6 GB total (8.0 GB weights + 2.1 GB KV cache), freeing ~8.0 GB that can be reallocated to larger batch sizes or a bigger KV cache.*
 
 #### Chunked Prefill — MNBT Sweep
 
-![Effect of token budget (MNBT) setting and chunked prefill explainer](results/figures/chart_chunked_prefill.png)
+![Effect of token budget (MNBT) setting and chunked prefill explainer]( figures/chart_chunked_prefill.png)
 
 *Left panel: Throughput under different chunked prefill configurations. CP OFF = 587 tok/s (−14.4%); MNBT=2668 = 659 tok/s (−3.9%); MNBT=8192 = 672 tok/s (−2.1%); baseline MNBT=16384 = 686 tok/s. Right panel: Diagram showing why chunked prefill helps — without it, a long prefill blocks all decode steps; with chunked prefill, prefill chunks (P1–P4) are interleaved with decode steps (D), eliminating the GPU stall.*
 
 #### Prefix Caching (APC) — Workload Sensitivity
 
-![Prefix caching impact on throughput](results/figures/chart_prefix_caching.png)
+![Prefix caching impact on throughput]( figures/chart_prefix_caching.png)
 
 *Throughput for three configurations: prefix caching ON (baseline default, 686 tok/s), prefix caching OFF (975 tok/s, +42.2%), and FP8 weights with prefix caching ON (1380 tok/s, +101.2%). On CNN/DailyMail — a dataset with low prefix reuse — APC adds lookup overhead without delivering cache hits, making it a net negative. This is workload-dependent: APC would be strongly positive on chat or RAG workloads with long shared system prompts.*
 
@@ -181,13 +181,13 @@ Baseline: BS=16, BF16, stock vLLM V1 defaults (stk_00 = 1089.04 tok/s).
 
 #### Stacked Throughput Delta
 
-![Progressive stacking — throughput delta vs baseline](results/figures/chart_stacked_delta.png)
+![Progressive stacking — throughput delta vs baseline]( figures/chart_stacked_delta.png)
 
 *Cumulative throughput improvement at each stacking step, as % delta vs the BF16 BS=16 baseline. FP8 weights alone brings +34.3%; adding right-sized KV cache (len=2668) peaks the stacked config at +41.8%. Subsequent additions — sort by length, GPU mem 0.95, FP8 KV cache, Compile O3, expandable segments — each slightly erode the cumulative gain due to interaction effects. BS=1024 (dark blue, rightmost) shows +205% directionally but is marked INVALID pending a loadgen fix.*
 
 #### Stacked Throughput — Absolute (Samples/s)
 
-![Progressive stacking — absolute throughput in samples/s](results/figures/chart_stacked_throughput.png)
+![Progressive stacking — absolute throughput in samples/s]( figures/chart_stacked_throughput.png)
 
 *Same stacking progression in absolute samples per second. Baseline = 8.51 samples/s. FP8 + right-sized KV reaches 12.06 samples/s. Steps 3–7 remain in the 11.1–11.8 range, confirming diminishing returns after the first two changes. BS=1024 projects to 25.95 samples/s if the loadgen issue is resolved.*
 
@@ -199,33 +199,33 @@ Baseline: BS=16, BF16, stock vLLM V1 defaults (stk_00 = 1089.04 tok/s).
 
 #### Latency Percentile Profiles
 
-![Latency percentile profiles — selected experiments](results/figures/chart5_latency_profiles.png)
+![Latency percentile profiles — selected experiments]( figures/chart5_latency_profiles.png)
 
 *Latency (seconds) across percentiles (Min → P99.9) for key experiments. `No Compile (O0)` has the worst tail latency, exceeding 2000 s at P99.9. The baseline and most single-flag experiments cluster between 1500–1600 s at P99. FP8 Weights brings this down to ~1165 s at P99. BS=1024 and BS=2048 form a separate low-latency band, staying below 750 s even at P99.9.*
 
-![Latency line chart — selected experiments](results/figures/chart4_latency_line.png)
+![Latency line chart — selected experiments]( figures/chart4_latency_line.png)
 
 *Latency percentile line chart confirming that batch size scaling (BS=1024, BS=2048) produces a qualitatively different latency regime — roughly 3× lower tail latency than the baseline — while all single-flag experiments at BS=16 remain in a tight band regardless of which flag is changed.*
 
 #### Throughput vs P99 Latency
 
-![Throughput vs P99 latency — all experiments](results/figures/chart5_throughput_vs_latency.png)
+![Throughput vs P99 latency — all experiments]( figures/chart5_throughput_vs_latency.png)
 
 *Scatter plot placing every experiment on two axes: throughput (tok/s, higher is better) vs P99 latency (seconds, lower is better). The ideal region is the top-left corner. BS=1024 and BS=2048 (green squares) dominate. FP8 Weights is the best single-flag improvement (blue dot). Regressions (red dots) cluster bottom-right. Orange dashed lines mark the baseline coordinates.*
 
-![Throughput and latency combined bubble chart](results/figures/chart6_combined_bubble.png)
+![Throughput and latency combined bubble chart]( figures/chart6_combined_bubble.png)
 
 *Bubble chart summarising all experiments simultaneously. Y-axis = throughput, bubble size = relative throughput, bubble color = mean latency (blue = fast → red = slow). BS=1024 and BS=2048 appear as large blue bubbles at the top, combining high throughput with low latency. `No Compile (O0)` is the small red bubble at bottom-left. Most single-flag experiments cluster near the baseline dashed line as medium orange bubbles.*
 
 #### Run Reproducibility
 
-![Run reproducibility — repeat measurements](results/figures/fig_reproducibility.png)
+![Run reproducibility — repeat measurements]( figures/fig_reproducibility.png)
 
 *Reproducibility check: three independent runs of the same configuration produce throughputs of 4475.8, 4458.3, and 4493.4 tok/s — a spread of less than 0.8% around the mean. This confirms that variance between runs is negligible and that reported differences between experiments reflect real effects, not noise.*
 
 #### Toggle Study
 
-![Toggle study — all experiments](results/figures/fig_toggle.png)
+![Toggle study — all experiments]( figures/fig_toggle.png)
 
 *A supplementary toggle-study sweep testing additional flags including prefix caching, async scheduling, scheduler steps, FlashInfer, and compilation level against a higher-throughput baseline (~2840 tok/s). Prefix cache enabled (A5) is the standout at +57.6% in this context. Scheduler delay (A6), scheduler steps=2 (B2), and scheduler steps=4 (B3) are notable regressions at −18.6%, −12.5%, and −10.6% respectively.*
 
@@ -240,7 +240,7 @@ throughout; any ROUGE deviation from baseline indicates a real change in model o
 
 ### ROUGE Metric Deviation — Overview
 
-![ROUGE metric deviation from MLPerf BF16 target](results/figures/fig_accuracy_delta.png)
+![ROUGE metric deviation from MLPerf BF16 target]( figures/fig_accuracy_delta.png)
 
 *Δ% from the MLPerf BF16 ROUGE target for every accuracy experiment, grouped into four categories. The red dashed line marks the −1% compliance floor. Sampling/engine checks (green) and FP8/float16 configs (blue) all land within noise of the target. Context length truncation (orange) crosses the floor below len=2668. Large batch sizes (red) cause the most severe regression, at ~−30% ROUGE-1.*
 

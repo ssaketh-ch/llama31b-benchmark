@@ -97,12 +97,6 @@ Baseline: BF16, BS=16, stock vLLM V1 defaults (exp_00 = 1082.82 tok/s).
 
 *Horizontal bar chart showing the percentage throughput change of each single-flag experiment relative to the V1 production baseline (1083 tok/s). Bars to the left are regressions; bars to the right are improvements. `compilation_config=O0` is the worst regression at −20.8%; FP8 weight quantization is the best non-batch gain at +34.5%. Batch size experiments are shown separately in the next chart.*
 
-#### Throughput Delta — Full Ranking (Lollipop Chart)
-
-![Throughput delta vs production baseline — full ranking]( figures/chart4_throughput_delta.png)
-
-*Full lollipop chart ranking all isolation experiments by throughput change. BS=2048 and BS=1024 dominate at +119.7% and +112.7% respectively, dwarfing every other flag. FP8 weights (+34.5%) and FP8 W+KV (+18.0%) form the next tier. Regressions are shown in red; the worst is `No Compile (O0)` at −20.8%.*
-
 #### Quantization Strategies and Batch Size Scaling
 
 ![Quantisation and batch size impact on throughput]( figures/chart2_quant_and_batch.png)
@@ -199,10 +193,6 @@ Baseline: BS=16, BF16, stock vLLM V1 defaults (stk_00 = 1089.04 tok/s).
 
 #### Latency Percentile Profiles
 
-![Latency percentile profiles — selected experiments]( figures/chart5_latency_profiles.png)
-
-*Latency (seconds) across percentiles (Min → P99.9) for key experiments. `No Compile (O0)` has the worst tail latency, exceeding 2000 s at P99.9. The baseline and most single-flag experiments cluster between 1500–1600 s at P99. FP8 Weights brings this down to ~1165 s at P99. BS=1024 and BS=2048 form a separate low-latency band, staying below 750 s even at P99.9.*
-
 ![Latency line chart — selected experiments]( figures/chart4_latency_line.png)
 
 *Latency percentile line chart confirming that batch size scaling (BS=1024, BS=2048) produces a qualitatively different latency regime — roughly 3× lower tail latency than the baseline — while all single-flag experiments at BS=16 remain in a tight band regardless of which flag is changed.*
@@ -212,10 +202,6 @@ Baseline: BS=16, BF16, stock vLLM V1 defaults (stk_00 = 1089.04 tok/s).
 ![Throughput vs P99 latency — all experiments]( figures/chart5_throughput_vs_latency.png)
 
 *Scatter plot placing every experiment on two axes: throughput (tok/s, higher is better) vs P99 latency (seconds, lower is better). The ideal region is the top-left corner. BS=1024 and BS=2048 (green squares) dominate. FP8 Weights is the best single-flag improvement (blue dot). Regressions (red dots) cluster bottom-right. Orange dashed lines mark the baseline coordinates.*
-
-![Throughput and latency combined bubble chart]( figures/chart6_combined_bubble.png)
-
-*Bubble chart summarising all experiments simultaneously. Y-axis = throughput, bubble size = relative throughput, bubble color = mean latency (blue = fast → red = slow). BS=1024 and BS=2048 appear as large blue bubbles at the top, combining high throughput with low latency. `No Compile (O0)` is the small red bubble at bottom-left. Most single-flag experiments cluster near the baseline dashed line as medium orange bubbles.*
 
 #### Run Reproducibility
 

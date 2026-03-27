@@ -1,0 +1,9 @@
+exp_id:       stk_00_baseline
+description:  PRODUCTION BASELINE: stock vLLM V1 defaults, BS=16
+batch_size:   16
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-25T07:40:50Z
+sut_func:     sut_stk00
+prev_stack:   none
+vllm_version: 0.17.1

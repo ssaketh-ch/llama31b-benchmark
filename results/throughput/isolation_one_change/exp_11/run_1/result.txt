@@ -1,0 +1,10 @@
+Experiment:   exp_11
+Run:          1/1
+Description:  kv_cache_dtype=fp8 KV only
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   1131.84
+Samples/sec:  8.84249
+Valid:        VALID
+Duration:     1538s
+Exit Code:    0

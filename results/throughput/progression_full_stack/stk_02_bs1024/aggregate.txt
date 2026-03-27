@@ -1,0 +1,11 @@
+Experiment:    stk_02_bs1024
+Description:   +BS=1024. FP8 freed HBM; fill with larger batch.
+Runs:          1/1 succeeded
+Mean tok/s:    3320.49
+Stdev tok/s:   0.00
+CV%:           0.0%
+Min tok/s:     3320.49
+Max tok/s:     3320.49
+All values:    ['3320.49']
+Valid rate:    0/1
+Cumulative vs stk_00: +204.90%

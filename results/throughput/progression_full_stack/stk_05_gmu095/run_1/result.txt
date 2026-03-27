@@ -1,0 +1,10 @@
+Experiment:   stk_05_gmu095
+Run:          1/1
+Description:  +gmu=0.95. 5% more HBM for KV / working set.
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   1504.52
+Samples/sec:  11.7541
+Valid:        VALID
+Duration:     1227s
+Exit Code:    0

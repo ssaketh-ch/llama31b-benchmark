@@ -1,0 +1,12 @@
+Experiment:    stk_04_sort
+Description:   +sort_by_len. Homogeneous batch, less decode waste.
+Runs:          1/1 succeeded
+Mean tok/s:    1507.93
+Stdev tok/s:   0.00
+CV%:           0.0%
+Min tok/s:     1507.93
+Max tok/s:     1507.93
+All values:    ['1507.93']
+Valid rate:    1/1
+Cumulative vs stk_00: +38.46%
+Marginal vs stk_03_kv2668: -2.35%

@@ -1,0 +1,10 @@
+Experiment:   exp_02
+Run:          1/1
+Description:  -async_output_proc OFF (disable V1 default async)
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   1006.82
+Samples/sec:  7.86577
+Valid:        VALID
+Duration:     1726s
+Exit Code:    0

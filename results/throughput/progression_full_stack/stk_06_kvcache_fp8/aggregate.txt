@@ -1,0 +1,12 @@
+Experiment:    stk_06_kvcache_fp8
+Description:   +kv_cache_dtype=fp8 (V1). Halves KV alongside weight FP8.
+Runs:          1/1 succeeded
+Mean tok/s:    1500.22
+Stdev tok/s:   0.00
+CV%:           0.0%
+Min tok/s:     1500.22
+Max tok/s:     1500.22
+All values:    ['1500.22']
+Valid rate:    1/1
+Cumulative vs stk_00: +37.76%
+Marginal vs stk_05_gmu095: -0.29%

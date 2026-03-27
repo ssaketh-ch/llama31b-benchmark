@@ -1,0 +1,9 @@
+exp_id:       stk_07_compile3
+description:  +compile O3. torch.compile max-opt fused kernels.
+batch_size:   16
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-25T10:22:32Z
+sut_func:     sut_stk07
+prev_stack:   none
+vllm_version: 0.17.1

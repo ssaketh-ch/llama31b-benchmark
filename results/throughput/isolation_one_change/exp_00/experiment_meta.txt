@@ -1,0 +1,7 @@
+exp_id:       exp_00
+description:  PRODUCTION BASELINE: stock vLLM V1 defaults, BS=16
+batch_size:   16
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-22T07:59:53Z
+vllm_version: 0.17.1

@@ -1,0 +1,9 @@
++-----------------------------------------------------------------------------+
+| GPU instance profiles:                                                      |
+| GPU   Name             ID    Instances   Memory     P2P    SM    DEC   ENC  |
+|                              Free/Total   GiB              CE    JPEG  OFA  |
+|=============================================================================|
+|   0  MIG 1g.18gb       19     1/7        16.00      No     16     1     0   |
+|                                                             1     1     0   |
++-----------------------------------------------------------------------------+
+Failed to display GPU instance profiles: Insufficient Permissions

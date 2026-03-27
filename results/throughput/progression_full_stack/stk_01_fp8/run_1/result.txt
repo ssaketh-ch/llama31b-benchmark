@@ -1,0 +1,10 @@
+Experiment:   stk_01_fp8
+Run:          1/1
+Description:  +fp8 quant (dtype=bfloat16). Halves weight BW.
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   1462.53
+Samples/sec:  11.426
+Valid:        VALID
+Duration:     1202s
+Exit Code:    0

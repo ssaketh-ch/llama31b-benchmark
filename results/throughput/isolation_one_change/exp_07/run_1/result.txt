@@ -1,0 +1,10 @@
+Experiment:   exp_07
+Run:          1/1
+Description:  async_scheduling=True (experimental)
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   1115.30
+Samples/sec:  8.71327
+Valid:        VALID
+Duration:     1561s
+Exit Code:    0

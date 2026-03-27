@@ -1,0 +1,9 @@
+exp_id:       stk_05_gmu095
+description:  +gmu=0.95. 5% more HBM for KV / working set.
+batch_size:   16
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-25T09:09:55Z
+sut_func:     sut_stk05
+prev_stack:   stk_04_sort
+vllm_version: 0.17.1

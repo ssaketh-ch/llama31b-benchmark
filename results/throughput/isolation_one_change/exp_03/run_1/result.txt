@@ -1,0 +1,10 @@
+Experiment:   exp_03
+Run:          1/1
+Description:  compilation_config=O1 (below V1 default O2)
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   1062.58
+Samples/sec:  8.30140
+Valid:        VALID
+Duration:     1637s
+Exit Code:    0

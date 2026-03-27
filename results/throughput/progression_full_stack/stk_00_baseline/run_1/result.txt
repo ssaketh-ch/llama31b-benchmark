@@ -1,0 +1,10 @@
+Experiment:   stk_00_baseline
+Run:          1/1
+Description:  PRODUCTION BASELINE: stock vLLM V1 defaults, BS=16
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   1089.04
+Samples/sec:  8.50816
+Valid:        VALID
+Duration:     1599s
+Exit Code:    0

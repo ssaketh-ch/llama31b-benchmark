@@ -1,0 +1,7 @@
+exp_id:       exp_06
+description:  max_num_batched_tokens=2668 (neutralise chunked prefill)
+batch_size:   16
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-22T10:49:12Z
+vllm_version: 0.17.1

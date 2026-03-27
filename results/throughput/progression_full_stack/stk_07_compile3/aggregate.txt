@@ -1,0 +1,10 @@
+Experiment:    stk_07_compile3
+Description:   +compile O3. torch.compile max-opt fused kernels.
+Runs:          1/1 succeeded
+Mean tok/s:    1494.88
+Stdev tok/s:   0.00
+CV%:           0.0%
+Min tok/s:     1494.88
+Max tok/s:     1494.88
+All values:    ['1494.88']
+Valid rate:    1/1

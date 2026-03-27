@@ -1,0 +1,10 @@
+Experiment:   stk_02_bs1024
+Run:          1/1
+Description:  +BS=1024. FP8 freed HBM; fill with larger batch.
+Batch Size:   1024
+Dtype:        float16
+Tokens/sec:   3320.49
+Samples/sec:  25.9413
+Valid:        INVALID
+Duration:     605s
+Exit Code:    0

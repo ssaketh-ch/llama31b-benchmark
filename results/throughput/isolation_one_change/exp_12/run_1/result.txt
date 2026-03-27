@@ -1,0 +1,10 @@
+Experiment:   exp_12
+Run:          1/1
+Description:  fp8 weights + fp8 KV
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   1277.73
+Samples/sec:  9.98225
+Valid:        VALID
+Duration:     1366s
+Exit Code:    0

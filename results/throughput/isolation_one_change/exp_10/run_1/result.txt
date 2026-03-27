@@ -1,0 +1,10 @@
+Experiment:   exp_10
+Run:          1/1
+Description:  quantization=fp8 weight only
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   1456.36
+Samples/sec:  11.3778
+Valid:        VALID
+Duration:     1222s
+Exit Code:    0

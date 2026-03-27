@@ -1,0 +1,10 @@
+Experiment:   stk_07_compile3
+Run:          1/1
+Description:  +compile O3. torch.compile max-opt fused kernels.
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   1494.88
+Samples/sec:  11.6787
+Valid:        VALID
+Duration:     1244s
+Exit Code:    0

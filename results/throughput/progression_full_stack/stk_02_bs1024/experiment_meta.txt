@@ -1,0 +1,9 @@
+exp_id:       stk_02_bs1024
+description:  +BS=1024. FP8 freed HBM; fill with larger batch.
+batch_size:   1024
+dtype:        float16
+runs:         1
+timestamp:    2026-03-25T09:59:17Z
+sut_func:     sut_stk02
+prev_stack:   stk_09_bitsandbytes
+vllm_version: 0.17.1

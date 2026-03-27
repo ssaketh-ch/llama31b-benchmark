@@ -1,0 +1,7 @@
+exp_id:       exp_18
+description:  skip_tokenizer_init=True
+batch_size:   16
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-22T15:20:42Z
+vllm_version: 0.17.1

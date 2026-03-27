@@ -1,0 +1,11 @@
+Experiment:    exp_04
+Description:   compilation_config=O0 (no compile vs V1 default O2)
+Runs:          1/1 succeeded
+Mean tok/s:    857.43
+Stdev tok/s:   0.00
+CV%:           0.0%
+Min tok/s:     857.43
+Max tok/s:     857.43
+All values:    ['857.43']
+Valid rate:    1/1
+Speedup vs exp_00: -20.82%

@@ -1,0 +1,29 @@
+[bench] python main.py --scenario Offline --model-path /workspace/language/llama3.1-8b/model --batch-size 16 --dtype bfloat16 --user-conf /workspace/language/llama3.1-8b/user.conf --total-sample-count 13368 --dataset-path /workspace/language/llama3.1-8b/dataset/llama3-1-8b-cnn-eval.uri/cnn_eval.json --output-log-dir /workspace/language/llama3.1-8b/isolation_results_v17/2026-03-22_07-59-53/exp_02/run_1/mlperf_logs --tensor-parallel-size 1 --vllm
+INFO:Llama-8B-Dataset:Loading dataset...
+INFO:Llama-8B-Dataset:Finished loading dataset.
+INFO:Llama-8B-SUT:Loading model...
+Traceback (most recent call last):
+  File "/workspace/language/llama3.1-8b/main.py", line 293, in <module>
+    main()
+  File "/workspace/language/llama3.1-8b/main.py", line 234, in main
+    sut = sut_cls(
+          ^^^^^^^^
+  File "/workspace/language/llama3.1-8b/SUT_VLLM.py", line 54, in __init__
+    self.load_model()
+  File "/workspace/language/llama3.1-8b/SUT_VLLM.py", line 70, in load_model
+    self.model = LLM(
+                 ^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/llm.py", line 338, in __init__
+    engine_args = EngineArgs(
+                  ^^^^^^^^^^^
+TypeError: EngineArgs.__init__() got an unexpected keyword argument 'disable_async_output_proc'
+
+# === UPDATED EXPECTED RESULTS ===
+Samples per second: 7.86577
+Tokens per second: 1006.82
+Result is : VALID
+
+# === UPDATED EXPECTED RESULTS ===
+Samples per second: 7.86577
+Tokens per second: 1006.82
+Result is : VALID

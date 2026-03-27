@@ -1,0 +1,7 @@
+exp_id:       exp_05
+description:  compilation_config=O3 (above V1 default O2)
+batch_size:   16
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-22T10:21:38Z
+vllm_version: 0.17.1

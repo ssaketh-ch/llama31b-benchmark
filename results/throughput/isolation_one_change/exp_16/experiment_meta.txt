@@ -1,0 +1,7 @@
+exp_id:       exp_16
+description:  gpu_memory_utilization=0.95
+batch_size:   16
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-22T14:25:20Z
+vllm_version: 0.17.1

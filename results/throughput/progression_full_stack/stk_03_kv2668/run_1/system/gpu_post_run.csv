@@ -1,0 +1,2 @@
+name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], utilization.memory [%], temperature.gpu, power.draw [W], clocks.current.sm [MHz], clocks.current.memory [MHz]
+NVIDIA H200 NVL, [Insufficient Permissions], [Insufficient Permissions], [Insufficient Permissions], [N/A], [N/A], 63, 108.19 W, 1785 MHz, 3201 MHz

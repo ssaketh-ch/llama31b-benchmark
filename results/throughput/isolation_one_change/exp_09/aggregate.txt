@@ -1,0 +1,11 @@
+Experiment:    exp_09
+Description:   max_num_batched_tokens=65536
+Runs:          1/1 succeeded
+Mean tok/s:    1089.07
+Stdev tok/s:   0.00
+CV%:           0.0%
+Min tok/s:     1089.07
+Max tok/s:     1089.07
+All values:    ['1089.07']
+Valid rate:    1/1
+Speedup vs exp_00: +0.58%

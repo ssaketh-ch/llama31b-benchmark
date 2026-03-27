@@ -1,0 +1,11 @@
+Experiment:    exp_13
+Description:   +batch_size=1024
+Runs:          1/1 succeeded
+Mean tok/s:    2302.79
+Stdev tok/s:   0.00
+CV%:           0.0%
+Min tok/s:     2302.79
+Max tok/s:     2302.79
+All values:    ['2302.79']
+Valid rate:    1/1
+Speedup vs exp_00: +112.67%

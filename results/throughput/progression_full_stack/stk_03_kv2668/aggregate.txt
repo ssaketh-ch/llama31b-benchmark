@@ -1,0 +1,12 @@
+Experiment:    stk_03_kv2668
+Description:   +KV=2668. Right-size KV cache; frees ~98% KV HBM.
+Runs:          1/1 succeeded
+Mean tok/s:    1544.29
+Stdev tok/s:   0.00
+CV%:           0.0%
+Min tok/s:     1544.29
+Max tok/s:     1544.29
+All values:    ['1544.29']
+Valid rate:    1/1
+Cumulative vs stk_00: +41.80%
+Marginal vs stk_01_fp8: +5.59%

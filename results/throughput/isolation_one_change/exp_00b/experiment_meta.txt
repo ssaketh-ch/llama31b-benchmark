@@ -1,0 +1,7 @@
+exp_id:       exp_00b
+description:  RIGHT-SIZED KV: max_model_len=2668 on production baseline
+batch_size:   16
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-22T08:27:27Z
+vllm_version: 0.17.1

@@ -1,0 +1,11 @@
+Experiment:    exp_02
+Description:   -async_output_proc OFF (disable V1 default async)
+Runs:          1/1 succeeded
+Mean tok/s:    1006.82
+Stdev tok/s:   0.00
+CV%:           0.0%
+Min tok/s:     1006.82
+Max tok/s:     1006.82
+All values:    ['1006.82']
+Valid rate:    1/1
+Speedup vs exp_00: -7.02%

@@ -1,0 +1,10 @@
+Experiment:   exp_16
+Run:          1/1
+Description:  gpu_memory_utilization=0.95
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   1104.48
+Samples/sec:  8.62874
+Valid:        VALID
+Duration:     1576s
+Exit Code:    0

@@ -1,0 +1,7 @@
+exp_id:       exp_12
+description:  fp8 weights + fp8 KV
+batch_size:   16
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-22T13:28:59Z
+vllm_version: 0.17.1

@@ -1,0 +1,9 @@
+exp_id:       stk_06_kvcache_fp8
+description:  +kv_cache_dtype=fp8 (V1). Halves KV alongside weight FP8.
+batch_size:   16
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-25T09:31:10Z
+sut_func:     sut_stk06
+prev_stack:   stk_05_gmu095
+vllm_version: 0.17.1

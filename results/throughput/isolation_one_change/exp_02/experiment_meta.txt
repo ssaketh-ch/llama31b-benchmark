@@ -1,0 +1,7 @@
+exp_id:       exp_02
+description:  -async_output_proc OFF (disable V1 default async)
+batch_size:   16
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-22T09:23:01Z
+vllm_version: 0.17.1

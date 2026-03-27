@@ -1,0 +1,11 @@
+Experiment:    exp_14
+Description:   +batch_size=2048
+Runs:          1/1 succeeded
+Mean tok/s:    2379.46
+Stdev tok/s:   0.00
+CV%:           0.0%
+Min tok/s:     2379.46
+Max tok/s:     2379.46
+All values:    ['2379.46']
+Valid rate:    1/1
+Speedup vs exp_00: +119.75%

@@ -1,0 +1,12 @@
+Experiment:    stk_01_fp8
+Description:   +fp8 quant (dtype=bfloat16). Halves weight BW.
+Runs:          1/1 succeeded
+Mean tok/s:    1462.53
+Stdev tok/s:   0.00
+CV%:           0.0%
+Min tok/s:     1462.53
+Max tok/s:     1462.53
+All values:    ['1462.53']
+Valid rate:    1/1
+Cumulative vs stk_00: +34.30%
+Marginal vs stk_00_baseline: +34.30%

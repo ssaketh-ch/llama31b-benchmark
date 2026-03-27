@@ -1,0 +1,10 @@
+Experiment:   stk_03_kv2668
+Run:          1/1
+Description:  +KV=2668. Right-size KV cache; frees ~98% KV HBM.
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   1544.29
+Samples/sec:  12.0647
+Valid:        VALID
+Duration:     1145s
+Exit Code:    0

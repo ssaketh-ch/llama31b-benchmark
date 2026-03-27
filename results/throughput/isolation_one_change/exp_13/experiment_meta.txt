@@ -1,0 +1,7 @@
+exp_id:       exp_13
+description:  +batch_size=1024
+batch_size:   1024
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-22T13:30:31Z
+vllm_version: 0.17.1

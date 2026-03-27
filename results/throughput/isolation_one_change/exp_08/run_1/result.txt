@@ -1,0 +1,10 @@
+Experiment:   exp_08
+Run:          1/1
+Description:  max_num_batched_tokens=8192
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   1120.72
+Samples/sec:  8.75561
+Valid:        VALID
+Duration:     1553s
+Exit Code:    0

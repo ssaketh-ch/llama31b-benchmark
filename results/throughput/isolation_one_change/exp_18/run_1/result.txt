@@ -1,0 +1,10 @@
+Experiment:   exp_18
+Run:          1/1
+Description:  skip_tokenizer_init=True
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   1083.77
+Samples/sec:  8.46692
+Valid:        VALID
+Duration:     1605s
+Exit Code:    0

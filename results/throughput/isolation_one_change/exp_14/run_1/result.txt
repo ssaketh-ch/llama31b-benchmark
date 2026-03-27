@@ -1,0 +1,10 @@
+Experiment:   exp_14
+Run:          1/1
+Description:  +batch_size=2048
+Batch Size:   2048
+Dtype:        bfloat16
+Tokens/sec:   2379.46
+Samples/sec:  18.5895
+Valid:        VALID
+Duration:     746s
+Exit Code:    0

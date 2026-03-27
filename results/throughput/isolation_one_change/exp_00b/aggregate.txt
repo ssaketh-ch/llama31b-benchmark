@@ -1,0 +1,10 @@
+Experiment:    exp_00b
+Description:   RIGHT-SIZED KV: max_model_len=2668 on production baseline
+Runs:          1/1 succeeded
+Mean tok/s:    1165.24
+Stdev tok/s:   0.00
+CV%:           0.0%
+Min tok/s:     1165.24
+Max tok/s:     1165.24
+All values:    ['1165.24']
+Valid rate:    1/1

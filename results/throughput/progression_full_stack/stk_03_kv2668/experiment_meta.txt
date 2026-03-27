@@ -1,0 +1,9 @@
+exp_id:       stk_03_kv2668
+description:  +KV=2668. Right-size KV cache; frees ~98% KV HBM.
+batch_size:   16
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-25T08:29:04Z
+sut_func:     sut_stk03
+prev_stack:   stk_01_fp8
+vllm_version: 0.17.1

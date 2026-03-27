@@ -1,0 +1,9 @@
+exp_id:       stk_01_fp8
+description:  +fp8 quant (dtype=bfloat16). Halves weight BW.
+batch_size:   16
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-25T08:08:15Z
+sut_func:     sut_stk01
+prev_stack:   stk_00_baseline
+vllm_version: 0.17.1

@@ -1,0 +1,10 @@
+Experiment:   stk_08_expandable
+Run:          1/1
+Description:  +expandable_segments. Dynamic HBM allocator; anti-OOM.
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   1420.8
+Samples/sec:  11.1
+Valid:        VALID
+Duration:     1269s
+Exit Code:    0

@@ -1,0 +1,9 @@
+exp_id:       stk_08_expandable
+description:  +expandable_segments. Dynamic HBM allocator; anti-OOM.
+batch_size:   16
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-25T10:44:03Z
+sut_func:     sut_stk08
+prev_stack:   stk_07_compile3
+vllm_version: 0.17.1

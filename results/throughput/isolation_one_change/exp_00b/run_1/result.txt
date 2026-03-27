@@ -1,0 +1,10 @@
+Experiment:   exp_00b
+Run:          1/1
+Description:  RIGHT-SIZED KV: max_model_len=2668 on production baseline
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   1165.24
+Samples/sec:  9.10343
+Valid:        VALID
+Duration:     1495s
+Exit Code:    0

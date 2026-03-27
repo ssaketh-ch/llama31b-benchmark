@@ -1,0 +1,10 @@
+Experiment:   exp_01
+Run:          1/1
+Description:  -prefix_caching=False (disable V1 default APC)
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   1048.73
+Samples/sec:  8.19320
+Valid:        VALID
+Duration:     1660s
+Exit Code:    0

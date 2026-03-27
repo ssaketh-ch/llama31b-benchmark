@@ -1,0 +1,11 @@
+Experiment:    stk_08_expandable
+Description:   +expandable_segments. Dynamic HBM allocator; anti-OOM.
+Runs:          1/1 succeeded
+Mean tok/s:    1420.80
+Stdev tok/s:   0.00
+CV%:           0.0%
+Min tok/s:     1420.80
+Max tok/s:     1420.80
+All values:    ['1420.80']
+Valid rate:    1/1
+Marginal vs stk_07_compile3: -4.96%

@@ -1,0 +1,10 @@
+Experiment:   exp_06
+Run:          1/1
+Description:  max_num_batched_tokens=2668 (neutralise chunked prefill)
+Batch Size:   16
+Dtype:        bfloat16
+Tokens/sec:   1063.47
+Samples/sec:  8.30835
+Valid:        VALID
+Duration:     1635s
+Exit Code:    0

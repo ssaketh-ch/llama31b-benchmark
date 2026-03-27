@@ -1,0 +1,7 @@
+exp_id:       exp_10
+description:  quantization=fp8 weight only
+batch_size:   16
+dtype:        bfloat16
+runs:         1
+timestamp:    2026-03-22T12:39:54Z
+vllm_version: 0.17.1

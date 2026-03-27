@@ -1,0 +1,10 @@
+Experiment:    stk_09_bitsandbytes
+Description:   +bitsandbytes int8 weight emulation (replaces fp8 quant for int8 comparison).
+Runs:          1/1 succeeded
+Mean tok/s:    446.14
+Stdev tok/s:   0.00
+CV%:           0.0%
+Min tok/s:     446.14
+Max tok/s:     446.14
+All values:    ['446.14']
+Valid rate:    1/1

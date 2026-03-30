@@ -1,71 +1,76 @@
-# Llama‑3.1‑8B vLLM Benchmark Harness
+# Llama-3.1-8B vLLM Benchmark Harness
 
-**Reproducible benchmarking and tuning harness for Llama‑3.1‑8B on NVIDIA H200 (MIG 71GB) using vLLM.**
-
-This repository provides a one‑knob harness for benchmarking and tuning Llama‑3.1‑8B on Hopper‑class GPUs. It includes MLflow‑logged experiments, isolated ablations, and summarized findings, making it easy to evaluate vLLM configuration knobs (FP8, chunked prefill, async scheduling, prefix caching, etc.) against well‑defined baselines.
+Concise orientation guide for the repository: what it measures, which baselines matter, and where
+to find the corresponding scripts and result bundles.
 
 ---
 
 ## Scope
 
-- Reproducible benchmarking and tuning for **Llama‑3.1‑8B** on **NVIDIA H200 NVL MIG 71GB** using **vLLM**.
-- One‑knob configuration for controlled ablations and isolation runs.
-- MLflow‑based logging of parameters, metrics, and artifacts.
-- Clear, summarized results per configuration knob (throughput, latency, GPU util, scheduler behavior).
+- Reproducible benchmarking for **Llama-3.1-8B** on **NVIDIA H200 NVL MIG 71GB**
+- vLLM-focused tuning across isolation, stacked, and accuracy workflows
+- MLPerf Offline scenario as the primary benchmark path
+- Logged artifacts, summarized reports, and profiling captures kept in-repo
 
 ---
 
-## Target Audience
+## Main Workflows
 
-- **Practitioners and infra engineers** benchmarking Hopper‑class GPUs and vLLM for large‑context Llama‑3.1‑8B workloads.  
-- **MLOps teams** looking for reusable, MLflow‑integrated benchmark templates.  
-- **ML engineers** comparing vLLM tuning knobs:
-  - FP8 vs BF16  
-  - Chunked prefill vs full prefill  
-  - Async scheduling  
-  - Prefix caching  
-  - Expandable segments, sorting, FlashInfer, etc.
-
----
-
-## Hardware & Software
-
-| Category  |  Version / Configuration    |
-|-----------|-----------------------------|
-| GPU       | NVIDIA H200 NVL, MIG 71GB   |
-| CUDA      | 12.8                        |
-| vLLM      | v0.17.1                     |
-| PyTorch   | 2.10.0+cu129             |
-| Transformers | 4.57.6         |
-| Python    | 3.12.13             |
-
-All experiments are tested on this configuration; results may vary under different vLLM, CUDA, or driver versions.
+| Workflow | Script | Purpose |
+|---|---|---|
+| Isolation sweep | `scripts/run_isolation.sh` | One change at a time vs the stock BF16/BS=16 production baseline |
+| Stacked / combination sweep | `scripts/run_stacked.sh` | Tuned FP8/BS=1024 baseline plus Phase A-D follow-up studies |
+| Legacy progression sweep | `scripts/run_experiments.sh` | Older progression experiments used for the original stacked report |
+| Accuracy validation | `scripts/accuracy_test.sh` | ROUGE checks for throughput candidates and negative controls |
+| Quant / APC / chunked prefill deep-dive | `scripts/quant_prefill.sh` | Focused study on quantization, APC, and chunked-prefill interactions |
 
 ---
 
 ## Baselines
 
-1. **OG baseline** (`main_run.sh`)  
-   - BF16, no quantization  
-   - BS=16, TP=1, max_len=131072  
-   - No sorting, no expansion, all advanced knobs off  
+### Stock production baseline
 
-2. **Tuned baseline** (`baseline.sh exp_00`)  
-   - FP8, TP=1, BS=1024, max_len=2668  
-   - Sorting on, expandable_segments on  
-   - All other knobs (prefix caching, async scheduling, FlashInfer, etc.) off  
+- BF16
+- batch size `16`
+- stock vLLM V1 defaults
+- used by the isolation study and as the main reference point in the repo-level report
 
-All ablations are measured relative to these baselines.
+### Tuned serving baseline
+
+- FP8 weights
+- batch size `1024`
+- `max_model_len=2668`
+- used by the combination study to test follow-up backend and scheduling changes
 
 ---
 
-## Key Findings (from Ablation)
+## Current Headline Findings
 
-- **Prefix caching**: **+57% tokens/sec** (throughput), subject to accuracy and hit‑rate validation.  
-- **Async scheduling**: **+5% tokens/sec** improvement at acceptable latency cost.  
-- **Regressions**:  
-  - High **GPU memory utilization** (up to **0.98**) under some configs.  
-  - Increased **scheduler delay** and **scheduler steps > 1** with certain knob combinations.  
-  - **FlashInfer** introduces regressions for this workload and is not beneficial here.
+- **FP8 weight quantization** is the highest-value single improvement from the stock baseline.
+- **`max_model_len=2668`** is a free throughput win and is accuracy-safe for CNN/DailyMail.
+- **Large batch sizes** unlock the largest throughput gains but are blocked by a major accuracy regression.
+- **APC is workload-dependent**: harmful on low-prefix-reuse CNN/DailyMail, potentially useful on chat/RAG-style prompts.
+- **FLASHINFER is neutral in the stock-baseline isolation run but positive in the tuned-baseline combination sweep**, so backend conclusions depend on the baseline context.
 
-These results are MLflow‑logged and summarized in the `results/` and `profiling/` directories.
+---
+
+## Where To Read Results
+
+| Location | What it contains |
+|---|---|
+| `README.md` | Repo-level summary, setup, and consolidated findings |
+| `results/README.md` | Full report across throughput and accuracy studies |
+| `results/throughput/isolation_one_change/` | Stock-baseline one-knob sweep |
+| `results/throughput/progression_full_stack/` | Progressive stacking study |
+| `results/throughput/Quant_APC_chunked/` | Quantization, APC, and chunked-prefill deep-dive |
+| `results/throughput/Combination results/` | Tuned-baseline combination sweep and raw captures |
+| `profiling/README.md` | Nsight Systems analysis for `batch=16` vs `batch=1024` |
+
+---
+
+## Notes
+
+- Raw benchmark logs and profiling captures are intentionally retained in the repository.
+- Some result directories preserve older naming for historical continuity.
+- For the latest interpretation of the data, prefer the root [README](../README.md) and
+  [results report](../results/README.md).

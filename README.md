@@ -73,7 +73,7 @@ One-knob tests, isolation runs, stacked tuning, accuracy validation, MLflow logg
 ## Quickstart (step-by-step)
 
 1) Install prerequisites
-- GPU: NVIDIA driver + CUDA 12.1
+- GPU: NVIDIA driver and a CUDA stack compatible with the pinned PyTorch / vLLM versions
 - Conda:
 ```bash
 mkdir -p ~/miniconda3
@@ -91,9 +91,9 @@ cd inference
 
 3) Set helper paths
 ```bash
-export ROOT=$PWD/inference
-export LLAMA_FOLDER=$PWD/language/llama3.1-8b
-export LOADGEN_FOLDER=$PWD/loadgen
+export ROOT=$PWD
+export LLAMA_FOLDER=$ROOT/language/llama3.1-8b
+export LOADGEN_FOLDER=$ROOT/loadgen
 export DATASET_FOLDER=$LLAMA_FOLDER/dataset
 ```
 
@@ -104,10 +104,8 @@ conda activate llama3.1-8b
 conda install -y -c conda-forge libstdcxx-ng=12
 ```
 
-5) Install requirements and loadgen
+5) Install loadgen
 ```bash
-cd $LLAMA_FOLDER
-pip install -r requirements.txt
 cd $LOADGEN_FOLDER && pip install -e . && cd -
 ```
 
@@ -141,19 +139,22 @@ export CHECKPOINT_PATH=$INFERENCE_DIR/model
 export DATASET_PATH=$INFERENCE_DIR/dataset
 export MLFLOW_TRACKING_URI=http://localhost:5000
 
-# Tuned baseline (FP8, TP=1, BS=1024, max_len=2668)
-./scripts/baseline.sh exp_00
+pip install -r env/requirements.txt
 
-# One single-knob test
-./scripts/baseline.sh exp_A5
+# Tuned baseline (FP8, TP=1, BS=1024, max_len=2668)
+./scripts/run_stacked.sh exp_00
+
+# One tuned-baseline combination test
+./scripts/run_stacked.sh exp_A5
 
 # Isolation run
-./scripts/main_run.sh exp_00
-./scripts/main_run.sh exp_A5
+./scripts/run_isolation.sh exp_00
+./scripts/run_isolation.sh exp_05
 ```
 
-> Quickstart scripts use the tuned FP8/BS=1024 baseline. Plain Python examples below use the
-> upstream BF16/BS=16 reference commands.
+> `run_stacked.sh` targets the tuned FP8/BS=1024 baseline. `run_isolation.sh` targets the stock
+> BF16/BS=16 production baseline. The plain Python examples below stay close to the upstream
+> BF16/BS=16 reference path.
 
 ---
 

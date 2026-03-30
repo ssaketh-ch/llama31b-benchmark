@@ -1,0 +1,9 @@
+Experiment:   exp_A3
+Description:  +max_num_batched_tokens=32768 (doubled).
+Batch Size:   1024
+Dtype:        bfloat16
+Tokens/sec:   3148.96
+Samples/sec:  24.6012
+Valid:        INVALID
+Duration:     584s
+Exit Code:    0

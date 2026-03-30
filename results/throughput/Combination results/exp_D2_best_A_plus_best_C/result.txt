@@ -1,0 +1,9 @@
+Experiment:   exp_D2
+Description:  Best A+C. EDIT SUT FIRST.
+Batch Size:   1024
+Dtype:        bfloat16
+Tokens/sec:   2696.25
+Samples/sec:  21.0645
+Valid:        VALID
+Duration:     673s
+Exit Code:    0

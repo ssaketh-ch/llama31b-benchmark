@@ -1,0 +1,9 @@
+Experiment:   exp_C2
+Description:  +ngram spec: 5 tokens, lookup_max=4, gmu=0.78.
+Batch Size:   1024
+Dtype:        bfloat16
+Tokens/sec:   2766.57
+Samples/sec:  21.6138
+Valid:        VALID
+Duration:     661s
+Exit Code:    0

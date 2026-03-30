@@ -1,0 +1,9 @@
+Experiment:   exp_A4
+Description:  +max_num_seqs=1024.
+Batch Size:   1024
+Dtype:        bfloat16
+Tokens/sec:   3041.02
+Samples/sec:  23.758
+Valid:        INVALID
+Duration:     600s
+Exit Code:    0

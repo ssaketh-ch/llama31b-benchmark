@@ -1,0 +1,9 @@
+Experiment:   exp_A6
+Description:  -enable_prefix_caching=False (disable APC).
+Batch Size:   1024
+Dtype:        bfloat16
+Tokens/sec:   3072.75
+Samples/sec:  24.0059
+Valid:        INVALID
+Duration:     594s
+Exit Code:    0

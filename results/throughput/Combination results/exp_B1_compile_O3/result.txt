@@ -1,0 +1,9 @@
+Experiment:   exp_B1
+Description:  +compilation_config=3 (O3).
+Batch Size:   1024
+Dtype:        bfloat16
+Tokens/sec:   3180.24
+Samples/sec:  24.8456
+Valid:        INVALID
+Duration:     588s
+Exit Code:    0

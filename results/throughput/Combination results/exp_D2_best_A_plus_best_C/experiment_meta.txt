@@ -1,0 +1,9 @@
+exp_id:       exp_D2
+description:  Best A+C. EDIT SUT FIRST.
+batch_size:   1024
+dtype:        bfloat16
+timestamp:    2026-03-27T14:52:40Z
+sut_func:     sut_expD2
+vllm_version: 0.17.1
+engine:       V1
+gpu_slice_gb: 71

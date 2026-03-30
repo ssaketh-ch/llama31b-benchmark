@@ -1,0 +1,9 @@
+exp_id:       exp_A7
+description:  +skip_tokenizer_init=True.
+batch_size:   1024
+dtype:        bfloat16
+timestamp:    2026-03-27T09:19:23Z
+sut_func:     sut_expA7
+vllm_version: 0.17.1
+engine:       V1
+gpu_slice_gb: 71

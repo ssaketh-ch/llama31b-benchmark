@@ -1,0 +1,9 @@
+exp_id:       exp_C2
+description:  +ngram spec: 5 tokens, lookup_max=4, gmu=0.78.
+batch_size:   1024
+dtype:        bfloat16
+timestamp:    2026-03-27T12:35:17Z
+sut_func:     sut_expC2
+vllm_version: 0.17.1
+engine:       V1
+gpu_slice_gb: 71

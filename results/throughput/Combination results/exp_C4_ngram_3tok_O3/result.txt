@@ -1,0 +1,9 @@
+Experiment:   exp_C4
+Description:  +ngram spec + O3 (run only if B1 positive).
+Batch Size:   1024
+Dtype:        bfloat16
+Tokens/sec:   2972.58
+Samples/sec:  23.2232
+Valid:        INVALID
+Duration:     618s
+Exit Code:    0

@@ -1,0 +1,9 @@
+Experiment:   exp_A7
+Description:  +skip_tokenizer_init=True.
+Batch Size:   1024
+Dtype:        bfloat16
+Tokens/sec:   3141.87
+Samples/sec:  24.5459
+Valid:        INVALID
+Duration:     584s
+Exit Code:    0

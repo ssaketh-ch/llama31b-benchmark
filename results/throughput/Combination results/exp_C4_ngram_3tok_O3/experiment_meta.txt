@@ -1,0 +1,9 @@
+exp_id:       exp_C4
+description:  +ngram spec + O3 (run only if B1 positive).
+batch_size:   1024
+dtype:        bfloat16
+timestamp:    2026-03-27T12:59:09Z
+sut_func:     sut_expC4
+vllm_version: 0.17.1
+engine:       V1
+gpu_slice_gb: 71

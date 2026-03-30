@@ -1,0 +1,9 @@
+Experiment:   exp_A5
+Description:  +block_size=32.
+Batch Size:   1024
+Dtype:        bfloat16
+Tokens/sec:   2993.4
+Samples/sec:  23.386
+Valid:        INVALID
+Duration:     608s
+Exit Code:    0

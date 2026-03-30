@@ -1,0 +1,9 @@
+Experiment:   exp_00
+Description:  BASELINE: FP8+BS1024+gmu0.90+len2668+APC+asyncOut+O2+FLASH_ATTN.
+Batch Size:   1024
+Dtype:        bfloat16
+Tokens/sec:   3023.34
+Samples/sec:  23.6199
+Valid:        INVALID
+Duration:     649s
+Exit Code:    0

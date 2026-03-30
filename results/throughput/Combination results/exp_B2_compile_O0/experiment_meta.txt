@@ -1,0 +1,9 @@
+exp_id:       exp_B2
+description:  +compilation_config=0 (O0 no compile).
+batch_size:   1024
+dtype:        bfloat16
+timestamp:    2026-03-27T09:40:51Z
+sut_func:     sut_expB2
+vllm_version: 0.17.1
+engine:       V1
+gpu_slice_gb: 71

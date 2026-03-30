@@ -1,0 +1,9 @@
+exp_id:       exp_C3
+description:  +ngram spec: 5 tokens, gmu=0.82 (OOM probe).
+batch_size:   1024
+dtype:        bfloat16
+timestamp:    2026-03-27T12:47:17Z
+sut_func:     sut_expC3
+vllm_version: 0.17.1
+engine:       V1
+gpu_slice_gb: 71

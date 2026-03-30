@@ -1,0 +1,9 @@
+Experiment:   exp_D1
+Description:  Best A+B. EDIT SUT FIRST.
+Batch Size:   1024
+Dtype:        bfloat16
+Tokens/sec:   3102.12
+Samples/sec:  24.2353
+Valid:        INVALID
+Duration:     607s
+Exit Code:    0

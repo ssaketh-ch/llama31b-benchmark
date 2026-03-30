@@ -1,0 +1,9 @@
+Experiment:   exp_C3
+Description:  +ngram spec: 5 tokens, gmu=0.82 (OOM probe).
+Batch Size:   1024
+Dtype:        bfloat16
+Tokens/sec:   2781.44
+Samples/sec:  21.73
+Valid:        VALID
+Duration:     655s
+Exit Code:    0

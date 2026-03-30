@@ -1,0 +1,9 @@
+exp_id:       exp_A5
+description:  +block_size=32.
+batch_size:   1024
+dtype:        bfloat16
+timestamp:    2026-03-27T08:57:24Z
+sut_func:     sut_expA5
+vllm_version: 0.17.1
+engine:       V1
+gpu_slice_gb: 71

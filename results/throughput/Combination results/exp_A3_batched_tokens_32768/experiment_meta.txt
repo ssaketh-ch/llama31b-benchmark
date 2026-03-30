@@ -1,0 +1,9 @@
+exp_id:       exp_A3
+description:  +max_num_batched_tokens=32768 (doubled).
+batch_size:   1024
+dtype:        bfloat16
+timestamp:    2026-03-27T08:35:44Z
+sut_func:     sut_expA3
+vllm_version: 0.17.1
+engine:       V1
+gpu_slice_gb: 71

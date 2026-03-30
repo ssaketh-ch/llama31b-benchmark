@@ -1,0 +1,9 @@
+Experiment:   exp_B4
+Description:  +attention_backend=FLASHINFER (V1 kwarg).
+Batch Size:   1024
+Dtype:        bfloat16
+Tokens/sec:   3261.6
+Samples/sec:  25.4813
+Valid:        INVALID
+Duration:     566s
+Exit Code:    0

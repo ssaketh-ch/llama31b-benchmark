@@ -1,0 +1,9 @@
+Experiment:   exp_B3
+Description:  +serial_output_processing.
+Batch Size:   1024
+Dtype:        bfloat16
+Tokens/sec:   3195.83
+Samples/sec:  24.9675
+Valid:        INVALID
+Duration:     594s
+Exit Code:    0

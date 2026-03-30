@@ -1,0 +1,9 @@
+Experiment:   exp_A1
+Description:  +gpu_memory_utilization=0.95.
+Batch Size:   1024
+Dtype:        bfloat16
+Tokens/sec:   3117.49
+Samples/sec:  24.3554
+Valid:        INVALID
+Duration:     591s
+Exit Code:    0

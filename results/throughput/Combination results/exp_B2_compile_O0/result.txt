@@ -1,0 +1,9 @@
+Experiment:   exp_B2
+Description:  +compilation_config=0 (O0 no compile).
+Batch Size:   1024
+Dtype:        bfloat16
+Tokens/sec:   3149.65
+Samples/sec:  24.6067
+Valid:        INVALID
+Duration:     573s
+Exit Code:    0

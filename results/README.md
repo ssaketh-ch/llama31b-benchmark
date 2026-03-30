@@ -2,7 +2,7 @@
 ## Throughput & Accuracy Study
 
 End-to-end optimization and validation study for LLaMA 3.1-8B on vLLM v0.17.1 (MLPerf Offline,
-PySUT, CNN/DailyMail summarization). This report covers three throughput experiment sets and a
+PySUT, CNN/DailyMail summarization). This report covers four throughput experiment sets and a
 full accuracy validation suite, together answering: *which optimizations are safe to ship?*
 
 ---
@@ -14,6 +14,7 @@ full accuracy validation suite, together answering: *which optimizations are saf
   - [1.1 Isolation Run](#11-isolation-run-vllm-v0171)
   - [1.2 Quantization, Chunked Prefill & APC Deep-Dive](#12-quantization-chunked-prefill--apc-deep-dive)
   - [1.3 Progressive Stacking](#13-progressive-stacking)
+  - [1.4 Combination Results](#14-combination-results)
 - [Part 2 — Accuracy Validation](#part-2--accuracy-validation)
   - [2.1 Control & Sanity Checks](#21-control--sanity-checks)
   - [2.2 Single-Flag Accuracy Checks](#22-single-flag-accuracy-checks)
@@ -37,6 +38,7 @@ full accuracy validation suite, together answering: *which optimizations are saf
 | async_scheduling=True | +4.93% | Not tested — low risk | **YES** |
 | sort_by_input_length | +3.00% | FAILED acc check — re-run needed | PENDING |
 | compilation_config=O3 | +1.41% | Confirmed neutral | **YES** |
+| FLASHINFER backend (stacked baseline) | +7.88% | Not tested | PENDING |
 | chunked_prefill + MNBT=65536 | +0.46% | Confirmed neutral | **YES** |
 | prefix_caching (APC) | Workload-dependent | Confirmed neutral on unique queries | CONDITIONAL |
 | fp8 KV cache | +4.5% (erodes in stack) | Not tested | CAUTION |
@@ -217,6 +219,66 @@ Baseline: BS=16, BF16, stock vLLM V1 defaults (stk_00 = 1089.04 tok/s).
 
 ---
 
+### 1.4 Combination Results
+
+This follow-up sweep starts from an already optimized serving stack rather than the stock BS=16
+baseline. The reference run here is:
+
+- FP8 weights
+- batch size `1024`
+- `gpu_memory_utilization=0.90`
+- `max_model_len=2668`
+- prefix caching enabled
+- async output enabled
+- compilation level `O2`
+- `FLASH_ATTN`
+
+That stacked baseline delivers **3023.34 tok/s** (`exp_00`). The experiment families then probe:
+
+- Phase A: memory and batching knobs
+- Phase B: runtime/backend toggles
+- Phase C: speculative decoding
+- Phase D: best-of combination templates
+
+#### Full Combination Table
+
+| Experiment | Group | Tokens/sec | Samples/sec | Delta vs exp_00 | Valid | Description |
+|---|---|---:|---:|---:|---|---|
+| `exp_00` | Baseline | `3023.34` | `23.6199` | `+0.00%` | `INVALID` | FP8+BS1024+gmu0.90+len2668+APC+asyncOut+O2+FLASH_ATTN |
+| `exp_A1` | Phase A | `3117.49` | `24.3554` | `+3.11%` | `INVALID` | `gpu_memory_utilization=0.95` |
+| `exp_A2` | Phase A | `3094.45` | `24.1754` | `+2.35%` | `INVALID` | `max_num_batched_tokens=8192` |
+| `exp_A3` | Phase A | `3148.96` | `24.6012` | `+4.16%` | `INVALID` | `max_num_batched_tokens=32768` |
+| `exp_A4` | Phase A | `3041.02` | `23.7580` | `+0.58%` | `INVALID` | `max_num_seqs=1024` |
+| `exp_A5` | Phase A | `2993.40` | `23.3860` | `-0.99%` | `INVALID` | `block_size=32` |
+| `exp_A6` | Phase A | `3072.75` | `24.0059` | `+1.63%` | `INVALID` | prefix caching disabled |
+| `exp_A7` | Phase A | `3141.87` | `24.5459` | `+3.92%` | `INVALID` | `skip_tokenizer_init=True` |
+| `exp_B1` | Phase B | `3180.24` | `24.8456` | `+5.19%` | `INVALID` | `compilation_config=3` (`O3`) |
+| `exp_B2` | Phase B | `3149.65` | `24.6067` | `+4.18%` | `INVALID` | `compilation_config=0` (`O0`) |
+| `exp_B3` | Phase B | `3195.83` | `24.9675` | `+5.71%` | `INVALID` | serial output processing |
+| `exp_B4` | Phase B | `3261.60` | `25.4813` | `+7.88%` | `INVALID` | `attention_backend=FLASHINFER` |
+| `exp_C1` | Phase C | `2936.85` | `22.9441` | `N/A` | `INVALID` | n-gram spec, 3 tokens, lookup max 3, `gmu=0.78` |
+| `exp_C2` | Phase C | `2766.57` | `21.6138` | `N/A` | `VALID` | n-gram spec, 5 tokens, lookup max 4, `gmu=0.78` |
+| `exp_C3` | Phase C | `2781.44` | `21.7300` | `N/A` | `VALID` | n-gram spec, 5 tokens, `gmu=0.82` |
+| `exp_C4` | Phase C | `2972.58` | `23.2232` | `N/A` | `INVALID` | n-gram spec + `O3` |
+| `exp_D1` | Phase D | `3102.12` | `24.2353` | `N/A` | `INVALID` | best A + best B template |
+| `exp_D2` | Phase D | `2696.25` | `21.0645` | `N/A` | `VALID` | best A + best C template |
+
+**Combination-study key findings:**
+
+- **`FLASHINFER` is the best non-speculative improvement in this sweep** at **3261.60 tok/s**
+  (`exp_B4`, **+7.88%** vs the stacked `exp_00` baseline).
+- **Phase A gains are modest but consistent**: `gpu_memory_utilization=0.95`, larger
+  `max_num_batched_tokens`, and `skip_tokenizer_init=True` each land in the **+3% to +4%** range.
+- **Speculative decoding underperforms this baseline stack**. The only `VALID` runs in the sweep
+  (`exp_C2`, `exp_C3`, `exp_D2`) are all slower than `exp_00`.
+- **Phase D results should be treated as template probes**, not final blessed configurations,
+  because the experiment metadata explicitly marks them as `EDIT SUT FIRST`.
+
+This combination sweep is documented in more detail in
+[`results/throughput/Combination results/README.md`](./throughput/Combination%20results/README.md).
+
+---
+
 ## Part 2 — Accuracy Validation
 
 Reference ROUGE scores (acc_baseline, BF16 BS=16): **R1=38.80 | R2=15.95 | RL=24.52 | RLsum=35.85**
@@ -345,6 +407,13 @@ Flags like `compilation_config=O3`, `expandable_segments`, and `sort_by_input_le
 small gains in isolation (+1–3%) but tend to be neutral or slightly negative in the full stacked
 context. They are not worth tuning individually unless the configuration is otherwise fully optimized.
 
+### Combination Sweep Confirms Backend Tuning Still Has Headroom
+Once the high-impact stack is already in place, the best remaining gains come from backend/runtime
+choices rather than speculative decode. In this follow-up sweep, `FLASHINFER` adds another **+7.88%**
+over the optimized `exp_00` stack, while speculative decoding remains slower even in the `VALID`
+runs. That makes backend selection the most promising next tuning axis after the major baseline
+changes are locked.
+
 ---
 
 ## Open Issues & Blockers
@@ -366,9 +435,10 @@ context. They are not worth tuning individually unless the configuration is othe
 2. **Re-run acc_fp8_quant and combo_acc_full_optimal** — these are blockers for any MLPerf submission.
 3. **Lock `max_model_len=2668` in all configs** — free +7.6% throughput, confirmed accuracy-safe, prevents truncation below this threshold.
 4. **Enable fp8 W8A8 weight quantization** — +34–101% throughput depending on baseline; accuracy pending re-run.
-5. **APC decision is workload-specific** — disable for CNN/DailyMail and similar low-reuse datasets; enable for high-reuse production workloads.
-6. **Keep CP ON with `MNBT=16384`** — CP OFF costs −14%; lower MNBT values cost 2–4%.
-7. **Do not use fp8 KV cache alongside fp8 weights** — net loss of ~16% vs. weights-only.
-8. **Do not use bitsandbytes quantization** — −59% in stacked context, not viable.
-9. **Do not run `compilation_config=O0` in production** — −20.8% confirmed.
-10. **`async_scheduling=True` is a safe +3–5%** on vLLM 0.10.0+ with no observed accuracy risk.
+5. **Evaluate `FLASHINFER` next on the optimized stack** — it is the strongest follow-up gain in the combination sweep at **+7.88%**, but still needs accuracy sign-off.
+6. **APC decision is workload-specific** — disable for CNN/DailyMail and similar low-reuse datasets; enable for high-reuse production workloads.
+7. **Keep CP ON with `MNBT=16384`** — CP OFF costs −14%; lower MNBT values cost 2–4%.
+8. **Do not use fp8 KV cache alongside fp8 weights** — net loss of ~16% vs. weights-only.
+9. **Do not use bitsandbytes quantization** — −59% in stacked context, not viable.
+10. **Do not run `compilation_config=O0` in production** — −20.8% confirmed in isolation, despite a positive result inside the stacked combination sweep.
+11. **`async_scheduling=True` is a safe +3–5%** on vLLM 0.10.0+ with no observed accuracy risk.

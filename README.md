@@ -32,6 +32,7 @@ One-knob tests, isolation runs, stacked tuning, accuracy validation, MLflow logg
 > Reference baseline: BF16, BS=16, stock vLLM V1 defaults (~1082-1089 tok/s depending on run date).
 > Best certified stacked config: FP8 weights + max_model_len=2668 (1544.29 tok/s, +41.8% vs baseline).
 > BS=1024 directional result: ~2303-3322 tok/s (+112 to +205%) -- not yet certified due to loadgen QPS issue.
+> Best follow-up tuned-baseline result: FLASHINFER on the stacked FP8/BS1024 baseline (3261.60 tok/s, +7.88% vs that baseline).
 
 ### Top Throughput Wins (Isolation, from OG baseline)
 
@@ -42,6 +43,7 @@ One-knob tests, isolation runs, stacked tuning, accuracy validation, MLflow logg
 | max_model_len=2668 (right-sized KV) | ~1165 | +7.6% | YES -- confirmed accuracy-neutral |
 | async_scheduling=True | ~1115 | +3-5% | YES -- low risk, no accuracy concern |
 | sort_by_input_length | ~1115 | +3% | PENDING (accuracy run failed -- re-run needed) |
+| FLASHINFER on tuned baseline | 3261.60 | +7.88% vs exp_00 tuned baseline | PENDING (throughput-only so far) |
 | prefix_caching=True | ~4476 | +57.6% | CONDITIONAL -- workload-dependent (see below) |
 
 ### Critical Accuracy Findings
@@ -62,7 +64,7 @@ One-knob tests, isolation runs, stacked tuning, accuracy validation, MLflow logg
 | scheduler_delay_factor=0.1 | -18.57% | Worst single flag in tuned-baseline set |
 | bitsandbytes quantization | -59% (stacked) | Never substitute for fp8 |
 | num_scheduler_steps=2/4 | -11 to -13% | Harmful at BS=1024 |
-| FLASHINFER backend | -6 to -7% | Default backend is better for this workload |
+| FLASHINFER on stock baseline | -0.08% | Neutral in isolation; only positive on the tuned BS=1024 stack |
 | gpu_memory_utilization=0.98 | -9.30% | Memory pressure causes stalls |
 | fp8 KV cache alongside fp8 weights | -16% vs weights-alone | Use weights-only fp8 |
 
@@ -385,6 +387,54 @@ All speedups relative to **baseline** (685.88 tok/s). Latencies in seconds.
 - **int8 W8A8** failed entirely (exit within 20s). Likely a missing kernel -- investigate before retrying.
 - **APC is strongly negative on CNN/DailyMail** (+42% from disabling it) due to low prefix reuse. Workload-dependent -- beneficial for chat/RAG with long shared system prompts.
 - **CP ON + MNBT=16384** is optimal. CP OFF costs -14%; lower MNBT values cost 2-4%.
+
+---
+
+### Combination Results
+Source: `results/throughput/Combination results/`
+
+This sweep starts from an already optimized serving baseline instead of the stock BF16/BS=16
+reference. The local baseline here is:
+
+- FP8 weights
+- batch size `1024`
+- `gpu_memory_utilization=0.90`
+- `max_model_len=2668`
+- prefix caching enabled
+- async output enabled
+- compilation level `O2`
+- `FLASH_ATTN`
+
+That baseline (`exp_00`) delivers **3023.34 tok/s**. The sweep then tests:
+
+- Phase A: memory and batching knobs
+- Phase B: runtime and backend toggles
+- Phase C: speculative decoding
+- Phase D: best-of combination templates
+
+| Experiment | Group | Tok/s | Delta vs exp_00 | Result | Notes |
+|---|---|---:|---:|---|---|
+| `exp_00` | Baseline | `3023.34` | `+0.00%` | INVALID | FP8+BS1024+gmu0.90+len2668+APC+asyncOut+O2+FLASH_ATTN |
+| `exp_A1` | Phase A | `3117.49` | `+3.11%` | INVALID | `gpu_memory_utilization=0.95` |
+| `exp_A3` | Phase A | `3148.96` | `+4.16%` | INVALID | `max_num_batched_tokens=32768` |
+| `exp_A7` | Phase A | `3141.87` | `+3.92%` | INVALID | `skip_tokenizer_init=True` |
+| `exp_B1` | Phase B | `3180.24` | `+5.19%` | INVALID | `compilation_config=3` (`O3`) |
+| `exp_B3` | Phase B | `3195.83` | `+5.71%` | INVALID | serial output processing |
+| `exp_B4` | Phase B | `3261.60` | `+7.88%` | INVALID | `attention_backend=FLASHINFER` |
+| `exp_C2` | Phase C | `2766.57` | `N/A` | VALID | n-gram spec, 5 tokens, lookup max 4 |
+| `exp_C3` | Phase C | `2781.44` | `N/A` | VALID | n-gram spec, 5 tokens, `gmu=0.82` |
+| `exp_D2` | Phase D | `2696.25` | `N/A` | VALID | best A + best C template |
+
+- **FLASHINFER is the best non-speculative result in this sweep** at **3261.60 tok/s**
+  (`exp_B4`, **+7.88%** vs the tuned `exp_00` baseline).
+- **Phase A knobs still have modest headroom**: higher GPU memory utilization, larger batched-token
+  budget, and skipping tokenizer init all land in the **+3% to +4%** range.
+- **Speculative decoding underperforms the tuned baseline**. The only `VALID` runs (`exp_C2`,
+  `exp_C3`, `exp_D2`) are all slower than `exp_00`.
+- **Phase D is exploratory rather than final**: the metadata marks these as `EDIT SUT FIRST`, so
+  they should be treated as templates, not locked production configs.
+
+See `results/throughput/Combination results/README.md` for the full table and per-phase breakdown.
 
 ---
 

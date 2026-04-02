@@ -10,3 +10,5 @@ venv/
 *.tar
 __pycache__/
 *.pyc
+*.nsys-rep
+*.sqlite

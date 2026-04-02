@@ -105,7 +105,7 @@ def get_args():
         "--tensor-parallel-size",
         type=int,
         default=8,
-        help="Number of workers to process queries",
+        help="Tensor parallelism degree",
     )
     parser.add_argument("--vllm", action="store_true", help="vllm mode")
     parser.add_argument(
@@ -130,13 +130,6 @@ def get_args():
 
     args = parser.parse_args()
     return args
-
-
-scenario_map = {
-    "offline": lg.TestScenario.Offline,
-    "server": lg.TestScenario.Server,
-    "singlestream": lg.TestScenario.SingleStream,
-}
 
 
 def parse_summary_file(summary_path):
@@ -190,6 +183,13 @@ def parse_summary_file(summary_path):
     except Exception as e:
         log.warning(f"Failed to parse summary file: {e}")
         return {}
+
+
+scenario_map = {
+    "offline": lg.TestScenario.Offline,
+    "server": lg.TestScenario.Server,
+    "singlestream": lg.TestScenario.SingleStream,
+}
 
 
 scenario_map = {

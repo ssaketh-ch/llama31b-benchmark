@@ -8,7 +8,7 @@
 #SBATCH --mem=64G
 #SBATCH --time=24:00:00
 #SBATCH --partition=mig_nodes
-#SBATCH --chdir=/home/saketh-msc/inference/language/llama3.1-8b
+#SBATCH --chdir=../llama3.1-8b
 
 # =============================================================================
 # vLLM v0.17.1 MLPerf Accuracy Ablation -- Llama-3.1-8B-Instruct on H200 MIG 71GB
@@ -53,11 +53,12 @@
 set -uo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SUBMIT_DIR="${SLURM_SUBMIT_DIR:-${SCRIPT_DIR}}"
-INFERENCE_DIR="${INFERENCE_DIR:-/home/saketh-msc/inference/language/llama3.1-8b}"
-CHECKPOINT_PATH="${CHECKPOINT_PATH:-/home/saketh-msc/inference/language/llama3.1-8b/model}"
-DATASET_PATH="${DATASET_PATH:-/home/saketh-msc/inference/language/llama3.1-8b/data}"
-EVAL_DATASET_PATH="${EVAL_DATASET_PATH:-/home/saketh-msc/inference/language/llama3.1-8b/dataset/llama3-1-8b-cnn-eval.uri/cnn_eval.json}"
+BASE_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+SUBMIT_DIR="${SLURM_SUBMIT_DIR:-${BASE_DIR}/llama3.1-8b}"
+INFERENCE_DIR="${INFERENCE_DIR:-${BASE_DIR}/llama3.1-8b}"
+CHECKPOINT_PATH="${CHECKPOINT_PATH:-${BASE_DIR}/llama3.1-8b/model}"
+DATASET_PATH="${DATASET_PATH:-${BASE_DIR}/llama3.1-8b/data}"
+EVAL_DATASET_PATH="${EVAL_DATASET_PATH:-${BASE_DIR}/llama3.1-8b/dataset/llama3-1-8b-cnn-eval.uri/cnn_eval.json}"
 GPU_COUNT="${GPU_COUNT:-1}"
 TOTAL_SAMPLE_COUNT=13368
 SCENARIO="Offline"

@@ -6,7 +6,7 @@ One-knob tests, isolation runs, stacked tuning, accuracy validation, MLflow logg
 
 ---
 
-You can view my Dissertation report at [View Document](./Dissertation_Saketh.pdf)
+You can view my [Dissertation report](./Dissertation_Saketh.pdf) here.
 
 ## System Info
 - **GPU:** NVIDIA H200 NVL, MIG enabled, driver 570.133.20, CUDA 12.8
